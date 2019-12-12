@@ -1,0 +1,73 @@
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+  - jekyll-redirect-from
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: default
+
+## Site related data
+locale: "en"
+title: Hasitha Aravinda's Blog
+email: mail.hasitha27@gmail.com
+description: Hasitha Aravinda's Blog
+twitter_username: HasithaAravinda
+github_username: hasithaa
+search: true
+read_time: true
+
+include:
+#  - v1
+
+# Exclude from processing.
+exclude:
+  - gists
+  - Gemfile
+  - Gemfile.lock
+
+## Author Info
+twitter:
+  username: "HasithaAravinda"
+social:
+  type: Person
+  links:
+    - https://twitter.com/HasithaAravinda
+    - https://www.linkedin.com/in/hasithaaravinda/
+    - https://github.com/hasithaa/
+author:
+  name             : "Hasitha Aravinda"
+  avatar           : "/assets/images/site/hasitha.jpg"
+  bio              : "A Developer, Engineer and Gamer :)"
+  location         : "Colombo, Sri Lanka"
+  email            :
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: mailto:mail.hasitha27@gmail.com
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/HasithaAravinda"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/hasithaa/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/hasithaaravinda/"
+
+
+# Site Footer
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fw fw-twitter"
+      url: "https://twitter.com/HasithaAravinda"
+    - label: "GitHub"
+      icon: "fw fw-github"
+      url: "https://github.com/hasithaa/"
+    - label: "LinkedIn"
+      icon: "fw fw-linkedin"
+      url: "https://www.linkedin.com/in/hasithaaravinda/"
