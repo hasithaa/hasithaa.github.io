@@ -6,14 +6,11 @@ title = "My Github Page"
 [params]
 
 [params.avatar]
-use = "local" # "local" or "gravatar"
+use = "gravatar"
 
 [params.gravatar]
-email = "hugo@example.com"
+email = "mail.hasitha27@gmail.com"
 size = 240
-
-[params.avatar.local]
-path = "hasitha.jpg" # please put the image in the static directory
 
 [menu]
 
