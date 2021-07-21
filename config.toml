@@ -1,0 +1,45 @@
+baseURL = "https://hasithaa.github.io/"
+languageCode = "en-us"
+theme = "hugo-bingo"
+title = "My Github Page"
+
+[params]
+
+[params.avatar]
+use = "local" # "local" or "gravatar"
+
+[params.gravatar]
+email = "hugo@example.com"
+size = 240
+
+[params.avatar.local]
+path = "hasitha.jpg" # please put the image in the static directory
+
+[menu]
+
+[[menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 10
+
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/posts"
+weight = 20
+
+[[params.social]]
+name = "github"
+url = "https://github.com/hasithaa/"
+weight = 10
+
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/HasithaAravinda"
+weight = 30
+
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/hasithaaravinda/"
+weight = 20
