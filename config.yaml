@@ -1,0 +1,90 @@
+baseURL: "https://hasithaa.github.io/"
+languageCode: "en-us"
+theme: "PaperMod"
+title: "Hasitha's Blog"
+
+googleAnalytics: UA-148733069-1
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    menu:
+      main:
+        - name: Blog
+          url: posts
+          weight: 5
+        - name: Archive
+          url: archives
+          weight: 5
+        - name: Search
+          url: search/
+          weight: 10
+        - name: Tags
+          url: tags/
+          weight: 10
+        # - name: Projects
+        #   url: projects/
+        #   weight: 10
+
+params:
+  env: production
+  defaultTheme: auto
+  author: Hasitha Aravinda
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: true
+  images: ["https://s.gravatar.com/avatar/8776f2ae6d49eadcc87cfd7bd40a7371?s=80"]
+
+  homeInfoParams:
+    title: Hi there!👋
+    content: >
+      I am **Hasitha Aravinda**.
+      
+      * Lead developer of the [Ballerina](https://github.com/ballerina-platform/ballerina-lang) Compiler Team
+      
+      * An Associate Director / Architect [WSO2](https://wso2.com/)
+      
+      * Play [Dota2](https://www.dota2.com/) for fun.
+
+  socialIcons: # optional
+    - name: "github"
+      url: "https://github.com/hasithaa/"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/hasithaaravinda/"
+    - name: "twitter"
+      url: "https://twitter.com/HasithaAravinda"
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys: ["title", "permalink", "summary", "content"]
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # is necessary
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

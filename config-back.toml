@@ -1,6 +1,6 @@
 baseURL = "https://hasithaa.github.io/"
 languageCode = "en-us"
-theme = "hugo-bingo"
+theme = "PaperMod"
 title = "My Github Page"
 
 [params]
