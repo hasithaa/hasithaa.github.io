@@ -99,7 +99,7 @@ languageName = "English"
 languageCode = "en-us"
 contentDir = "content/en"
 weight = 0
-title = "Hasitha's Blog"
+title = "Tech Blog - Hasitha Aravinda"
 [languages.en.params]
 description = "Hasitha Aravinda's Tech Blog"   # Max 160 characters show in search results
 footerText   = "Copyright © 2021-{{< year >}}  [**Hasitha Aravinda**](https://twitter.com/hasithaaravinda). All rights reserved."                      # Text to override default footer text (markdown allowed)
