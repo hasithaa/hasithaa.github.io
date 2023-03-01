@@ -4,7 +4,7 @@ weight : 20
 ---
 
 ![Ballerina Lang](/img/ballerina_logo_dgrey_png.png)
-<i class="fa fa-globe"></i> [Ballerina.io](https://github.com/ballerina-platform/ballerina-lang)<br/>
+<i class="fa fa-globe"></i> [Ballerina.io](https://ballerina.io)<br/>
 
 ### Ballerina Compiler Design and Implementation
 
@@ -15,6 +15,6 @@ I'm currently leading the design and architecture of the Ballerina Language Comp
 ### Ballerina Language Specification
 
 <i class="fa fa-globe mr-1"></i> [Current Spec](https://ballerina.io/spec/lang/master), 
-<i class="fa fa-globe mr-1"></i> [2022R1](https://ballerina.io/spec/lang/2022R4/)
+<i class="fa fa-globe mr-1"></i> [2022R4](https://ballerina.io/spec/lang/2022R4/)
 
 As a primary contributor to the Ballerina Language Specification from the beginning of the language design process, I have been involved in several iterations, feature changes, re-implementations, and design verifications. Being an initial member of the Ballerina team, I have played an active role in shaping various language features and helping the team throughout the development process. I'm proud to say that our efforts have resulted in a well-designed language that meets the needs of modern integration challenges.
