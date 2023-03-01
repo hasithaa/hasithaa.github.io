@@ -1,0 +1,10 @@
+bin
+node_modules
+public
+build
+resources
+# Local Netlify folder
+.netlify
+TODO
+.idea
+.hugo_build.lock
