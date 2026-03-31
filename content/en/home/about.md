@@ -5,11 +5,13 @@ weight : 5
 
 👋 I'm 𝐇𝐚𝐬𝐢𝐭𝐡𝐚 𝐀𝐫𝐚𝐯𝐢𝐧𝐝𝐚!
 
-👨‍💻 I'm currently working on [**Ballerina Lang**](https://ballerina.io), a programming language for integration, as the lead developer of the Ballerina Compiler Team. I'm also one of the primary contributors to the Ballerina Language Design.
+👨‍💻 I'm an Architect at the Integration BU and a Compiler Developer at [**Ballerina Platform**](https://github.com/ballerina-platform/), [WSO2](https://wso2.com). I lead the design and architecture of the [**Ballerina Language Compiler**](https://ballerina.io) and I'm one of the primary contributors to the Ballerina Language Design.
 
-🚀 Before joining the Ballerina team, I specialized in building Java middleware for enterprise integration using technologies such as WS-BPEL, BPMN, WS-HumanTask, ESB, and Web Services. My experience includes developing strong enterprise integration development skills with Java, BPEL, BPMN, and Synapse languages.
+🚀 I led the design of Ballerina Integrator (2024 Q3 — 2025 Q3), whose design laid the foundation for [**WSO2 Integrator**](https://wso2.com/integrator/). Ballerina Integrator was renamed to WSO2 Integrator : BI in 2025 and then to WSO2 Integrator in 2026. Currently, I own and lead the design and implementation of [**workflow support**](https://github.com/ballerina-platform/module-ballerina-workflow) for Ballerina and WSO2 Integrator.
 
-🏢 At present, I hold the position of Associate Director/Architect at WSO2 LLC.
+🛠️ Before joining the Ballerina team, I specialized in building Java middleware for enterprise integration using technologies such as WS-BPEL, BPMN, WS-HumanTask, ESB, and Web Services. My experience includes developing strong enterprise integration development skills with Java, BPEL, BPMN, and Synapse languages.
+
+🏢 At present, I hold the position of Architect at WSO2 LLC.
 
 🎮 When I'm not coding, I enjoy playing 𝐃𝐨𝐭𝐚𝟐 for fun.
 
