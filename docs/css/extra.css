@@ -195,13 +195,13 @@ iframe {
     padding-left: 1.25rem;
 }
 
-.timeline-entry .tags {
+.tags {
     font-size: 0.75rem;
     color: var(--md-default-fg-color--lighter);
     margin-top: 0.35rem;
 }
 
-.timeline-entry .tags span {
+.tags span {
     display: inline-block;
     background: var(--md-default-fg-color--lightest);
     color: var(--md-default-fg-color--light);

@@ -1,8 +1,8 @@
 ---
-title: "\U0001F680 Projects"
+title: "About Me"
 ---
 
-# :rocket: Projects & Work
+# :rocket: About Me
 
 ## [WSO2](https://wso2.com) · Architect — Integration BU · Compiler Developer — Ballerina Platform
 
@@ -10,7 +10,7 @@ title: "\U0001F680 Projects"
 
 :material-school: BSc in Computer Science and Engineering (Hons), University of Moratuwa, Sri Lanka
 
-<div class="tags"><span>Ballerina</span> <span>Compiler Design</span> <span>Language Specification</span> <span>WSO2 Integrator</span> <span>Workflow</span> <span>Java</span> <span>WS-BPEL</span> <span>BPMN</span> <span>SOA</span> <span>Web Services</span> <span>Linux</span> <span>OOP</span></div>
+<div class="tags"><span>Ballerina</span> <span>Compiler Design</span> <span>Developer Experience</span> <span>Low-Code Editors</span> <span>Pro-Code Editors</span> <span>WSO2 Integrator</span> <span>Workflow</span> <span>Integrations</span> <span>Java</span> <span>WS-BPEL</span> <span>BPMN</span> <span>SOA</span> <span>Web Services</span></div>
 
 ---
 
@@ -31,11 +31,11 @@ I currently own and lead the design and implementation of workflow support for B
 <div class="timeline-entry current" markdown>
 <div class="timeline-year">2024 Q3 — 2025 Q3 · now WSO2 Integrator</div>
 
-### Ballerina Integrator / WSO2 Integrator (BI) { #ballerina-integrator }
+### Ballerina Integrator / WSO2 Integrator : BI { #ballerina-integrator }
 
 :material-link: [WSO2 Integrator — Ballerina Integrator](https://wso2.com/integrator/ballerina-integrator/)
 
-**Ballerina Integrator (BI) is a developer tool for building integrations, including APIs, file processing, event-driven workflows, automation, and more.**
+**Ballerina Integrator : BI is a developer tool for building integrations, including APIs, file processing, event-driven workflows, automation, and more.**
 
 It provides a unified low-code and pro-code developer experience within the same tool, enhanced by robust visual aids to represent various aspects of the integration, such as:
 

@@ -8,8 +8,8 @@ Here are some of my recent community engagements, blog posts and talks. Stay tun
 
 ## 2025
 
-- **[From Visual Flows to Power Programming: The Ballerina Integrator Journey (Video)](2025/wso2con-ballerina-integrator.md)** — WSO2Con Barcelona 2025
-- **[Programming Languages and Compilers (Video)](2025/wso2-tech-conf-compilers.md)** — WSO2 Technology Conference 2025
+- **[From Visual Flows to Power Programming: The Ballerina Integrator Journey (Video)](2025/wso2con-ballerina-integrator.md)** — WSO2Con Barcelona 2025 · [Related project →](../projects/index.md#ballerina-integrator)
+- **[Programming Languages and Compilers (Video)](2025/wso2-tech-conf-compilers.md)** — WSO2 Technology Conference 2025 · [Related project →](../projects/index.md#ballerina-compiler)
 
 ## 2023
 
@@ -18,7 +18,7 @@ Here are some of my recent community engagements, blog posts and talks. Stay tun
 
 ## 2022
 
-- **[Introduction to Ballerina - A Cloud Native Programming Language (Video)](2022/meetup.md)** — Feb 2, 2022
+- **[Introduction to Ballerina - A Cloud Native Programming Language (Video)](2022/meetup.md)** — Feb 2, 2022 · [Related project →](../projects/index.md#ballerina-compiler)
 
 ## Older
 

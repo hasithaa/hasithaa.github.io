@@ -7,7 +7,7 @@ hide:
 
 <div class="page-wrap" markdown>
 
-# Hasitha Aravinda
+# Hasitha Aravinda Thilakarathna
 
 ## Architect · Compiler Developer
 
@@ -21,19 +21,23 @@ Outside of work, I enjoy playing Dota 2.
 
 ---
 
-## Talks
+## Blog & Talks
 
 ### [From Visual Flows to Power Programming: The Ballerina Integrator Journey](blog/2025/wso2con-ballerina-integrator.md)
 
-WSO2Con Barcelona 2025
+WSO2Con Barcelona 2025 · [Related project →](projects/index.md#ballerina-integrator)
 
 ### [Programming Languages and Compilers](blog/2025/wso2-tech-conf-compilers.md)
 
-WSO2 Technology Conference 2025
+WSO2 Technology Conference 2025 · [Related project →](projects/index.md#ballerina-compiler)
 
 ### [Introduction to Ballerina — A Cloud Native Programming Language](blog/2022/meetup.md)
 
-CodeSeekers Endless Programming Languages Meetup · 2022
+CodeSeekers Endless Programming Languages Meetup · 2022 · [Related project →](projects/index.md#ballerina-compiler)
+
+### [Ballerina Identifiers: A Simple Guide](blog/2023/ballerina-identifiers.md)
+
+### [Setup Ballerina GitHub Action](blog/2023/setup-ballerina.md)
 
 [All posts →](blog/index.md)
 
@@ -49,7 +53,7 @@ CodeSeekers Endless Programming Languages Meetup · 2022
 
 ### [WSO2 Business Process Server](projects/index.md#wso2-bps) · 2012–2016
 
-[All projects →](projects/index.md)
+[More about me →](projects/index.md)
 
 ---
 
