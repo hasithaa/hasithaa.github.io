@@ -1,0 +1,69 @@
+site_name: Blog - Hasitha Aravinda
+site_url: https://hasithaa.github.io/
+site_description: Hasitha Aravinda's Tech Blog
+
+theme:
+  name: material
+  favicon: img/favicon.png
+  logo: img/favicon.png
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - toc.integrate
+
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+  - css/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/HasithaAravinda
+    - icon: fontawesome/brands/github
+      link: https://github.com/hasithaa/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/hasithaaravinda/
+  analytics:
+    provider: google
+    property: G-Y0NC9SXE07
+
+copyright: Copyright &copy; 2021-2026 <a href="https://twitter.com/hasithaaravinda">Hasitha Aravinda</a>. All rights reserved.
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Blog:
+      - blog/index.md
+      - Ballerina Integrator Journey: blog/2025/wso2con-ballerina-integrator.md
+      - Programming Languages and Compilers: blog/2025/wso2-tech-conf-compilers.md
+      - Setup Ballerina Action: blog/2023/setup-ballerina.md
+      - Ballerina Identifiers: blog/2023/ballerina-identifiers.md
+      - Ballerina Meetup: blog/2022/meetup.md
+      - My Old Blog: blog/old.md
+  - About Me:
+      - projects/index.md

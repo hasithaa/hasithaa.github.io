@@ -8,3 +8,4 @@ resources
 TODO
 .idea
 .hugo_build.lock
+site/

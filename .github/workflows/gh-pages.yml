@@ -1,37 +1,30 @@
-name: github pages
+name: Deploy MkDocs
 
 on:
   push:
     branches:
-      - v2  # Set a branch to deploy
+      - v2
   pull_request:
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
+          python-version: 3.x
+
       - name: Install dependencies
-        run: npm i -g postcss postcss-cli autoprefixer
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
+        run: pip install -r requirements.txt
 
       - name: Build
-        run: hugo --minify
+        run: mkdocs build --strict
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/v2'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+        run: mkdocs gh-deploy --force
