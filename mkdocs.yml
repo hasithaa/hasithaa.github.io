@@ -31,8 +31,8 @@ extra_css:
 
 extra:
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/HasithaAravinda
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/HasithaAravinda
     - icon: fontawesome/brands/github
       link: https://github.com/hasithaa/
     - icon: fontawesome/brands/linkedin
