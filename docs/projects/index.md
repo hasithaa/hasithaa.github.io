@@ -1,8 +1,8 @@
 ---
-title: "About Me"
+title: "Portfolio"
 ---
 
-# :rocket: About Me
+# 🧑‍💻 Portfolio
 
 ## [WSO2](https://wso2.com) · Architect — Integration BU · Compiler Developer — Ballerina Platform
 

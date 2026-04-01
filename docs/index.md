@@ -43,6 +43,14 @@ CodeSeekers Endless Programming Languages Meetup · 2022 · [Related project →
 
 ---
 
+## Guides
+
+### [Ballerina Language Reference](https://hasithaa.github.io/ballerina-reference-guide/) *(WIP)*
+
+A language reference for Ballerina — covering the structural type system, worker-based concurrency, and data-oriented design from first principles.
+
+---
+
 ## Projects
 
 ### [Ballerina Workflow](projects/index.md#ballerina-workflow) · 2026
