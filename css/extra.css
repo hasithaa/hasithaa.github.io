@@ -1,0 +1,212 @@
+/* ── Minimal portfolio layout ── */
+
+.page-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 4rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+/* Name heading */
+.page-wrap h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.1rem;
+}
+
+/* Sub-title (## right after h1) */
+.page-wrap h1+h2 {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--md-default-fg-color--light);
+    margin-top: 0;
+    border-bottom: none;
+}
+
+/* Section headings */
+.page-wrap h2 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--md-default-fg-color--light);
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    border-bottom: none;
+}
+
+/* Entry headings */
+.page-wrap h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.1rem;
+}
+
+.page-wrap h3 a {
+    color: var(--md-default-fg-color);
+    text-decoration: none;
+}
+
+.page-wrap h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Role/date line */
+.page-wrap h4 {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--md-default-fg-color--light);
+    margin: 0 0 0.35rem;
+}
+
+.page-wrap p {
+    margin: 0.25rem 0 0.5rem;
+    color: var(--md-default-fg-color--light);
+}
+
+/* Links section */
+.page-wrap hr+p a,
+.page-wrap hr~p a {
+    color: var(--md-default-fg-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.page-wrap a {
+    color: var(--md-default-fg-color);
+}
+
+.page-wrap a:hover {
+    text-decoration: underline;
+}
+
+/* Dividers */
+.page-wrap hr {
+    border: none;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+    margin: 2rem 0 0;
+}
+
+/* Arrow links like [All posts ->] */
+.page-wrap p>a:only-child {
+    font-size: 0.8rem;
+    color: var(--md-default-fg-color--light);
+}
+
+/* Responsive YouTube embed */
+iframe {
+    max-width: 100%;
+}
+
+/* ── Timeline layout for Projects ── */
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--md-default-fg-color--lightest);
+}
+
+.timeline-entry {
+    position: relative;
+    margin-bottom: 2.25rem;
+}
+
+.timeline-entry::before {
+    content: "";
+    position: absolute;
+    left: -2rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--md-primary-fg-color);
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.timeline-entry.current::before {
+    background: var(--md-primary-fg-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--md-primary-fg-color) 25%, transparent);
+}
+
+.timeline-entry.deprecated::before {
+    background: var(--md-default-fg-color--lightest);
+}
+
+.timeline-year {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--md-primary-fg-color);
+    margin-bottom: 0.1rem;
+    line-height: 1.4;
+}
+
+.timeline-entry h3,
+.timeline-entry h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0.1rem 0 0.25rem;
+    line-height: 1.4;
+}
+
+.timeline-entry h4 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+}
+
+.timeline-entry h3 a,
+.timeline-entry h4 a {
+    color: var(--md-default-fg-color);
+    text-decoration: none;
+}
+
+.timeline-entry h3 a:hover,
+.timeline-entry h4 a:hover {
+    text-decoration: underline;
+}
+
+.timeline-entry p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--md-default-fg-color--light);
+    margin: 0.15rem 0 0.5rem;
+}
+
+.timeline-entry ul {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--md-default-fg-color--light);
+    margin: 0.15rem 0 0.5rem;
+    padding-left: 1.25rem;
+}
+
+.tags {
+    font-size: 0.75rem;
+    color: var(--md-default-fg-color--lighter);
+    margin-top: 0.35rem;
+}
+
+.tags span {
+    display: inline-block;
+    background: var(--md-default-fg-color--lightest);
+    color: var(--md-default-fg-color--light);
+    padding: 0.1rem 0.5rem;
+    border-radius: 3px;
+    margin: 0.1rem 0.2rem 0.1rem 0;
+    font-size: 0.7rem;
+}
