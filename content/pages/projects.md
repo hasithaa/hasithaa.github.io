@@ -37,6 +37,21 @@ I started AFM in 2025 as a prototype. My colleague Maryam Ziyad Mohamed took it 
 
 > Maryam Ziyad Mohamed, Hasitha Aravinda, Rania Khalaf. *Agent-Flavored Markdown: Natural Language Specifications for Framework-Agnostic Agent Development.* AgentCraft 2026: Workshop on Agentic AI Systems Development, ACM IUI 2026, Paphos, Cyprus. CEUR-WS Vol-4266.
 
+<p><button type="button" class="copy" data-copy="afm-bibtex">Copy BibTeX</button></p>
+
+<pre id="afm-bibtex">@inproceedings{mohamed2026afm,
+  title={Agent-Flavored Markdown: Natural Language Specifications for Framework-Agnostic Agent Development},
+  author={{Ziyad Mohamed}, Maryam and Aravinda, Hasitha and Khalaf, Rania},
+  booktitle={Joint Proceedings of the ACM IUI 2026 Workshops co-located with the 31st Annual ACM Conference on Intelligent User Interfaces (IUI 2026)},
+  editor={Tommasel, Antonela and Kahr, Patricia and Dinakar, Karthik and others},
+  series={CEUR Workshop Proceedings},
+  volume={4266},
+  publisher={CEUR-WS.org},
+  issn={1613-0073},
+  year={2026},
+  url={https://ceur-ws.org/Vol-4266/paper03.pdf}
+}</pre>
+
 <div class="tags"><span>AI Agents</span> <span>Specification</span> <span>Markdown</span> <span>Interoperability</span></div>
 </div>
 

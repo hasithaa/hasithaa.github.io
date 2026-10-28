@@ -1,3 +1,26 @@
+// Theme switch: system -> light -> dark. The choice is kept per browser; "system" follows the OS.
+const root = document.documentElement;
+const toggle = document.querySelector(".theme-toggle");
+const order = ["system", "light", "dark"];
+
+function showTheme(theme) {
+  toggle.dataset.theme = theme;
+  toggle.setAttribute("aria-label", `Theme: ${theme}`);
+  toggle.title = `Theme: ${theme}`;
+}
+
+showTheme(root.dataset.theme || "system");
+toggle.addEventListener("click", () => {
+  const next = order[(order.indexOf(toggle.dataset.theme) + 1) % order.length];
+  if (next === "system") delete root.dataset.theme;
+  else root.dataset.theme = next;
+  try {
+    if (next === "system") localStorage.removeItem("theme");
+    else localStorage.setItem("theme", next);
+  } catch (e) {}
+  showTheme(next);
+});
+
 // Kind filter on the blog index.
 document.querySelectorAll(".filters button").forEach((button) => {
   button.addEventListener("click", () => {
@@ -9,5 +32,19 @@ document.querySelectorAll(".filters button").forEach((button) => {
     document.querySelectorAll("h2.year").forEach((h) => {
       h.hidden = ![...h.nextElementSibling.children].some((e) => !e.hidden);
     });
+  });
+});
+
+// Copy buttons, e.g. the BibTeX entry on the portfolio.
+document.querySelectorAll("[data-copy]").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const text = document.getElementById(button.dataset.copy).textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = "Copied";
+    } catch (e) {
+      button.textContent = "Select and copy";
+    }
+    setTimeout(() => (button.textContent = "Copy BibTeX"), 2000);
   });
 });

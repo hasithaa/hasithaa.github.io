@@ -7,7 +7,9 @@ url: /
 
 <p class="lede">Architect at WSO2. I build programming languages, durable workflows and AI agents.</p>
 
-## Now
+<!-- social -->
+
+## <span class="now-dot"></span>Now
 
 I lead the design of [Ballerina Workflow](/projects/#ballerina-workflow), which brings durable workflows to Ballerina and WSO2 Integrator. These are long-running processes that wait for people, events and AI agents, and keep going after restarts. I also started [Agent-Flavored Markdown (AFM)](/projects/#afm), an open specification for portable AI agents written in Markdown.
 
@@ -21,9 +23,11 @@ Before this, I led the architecture of the low-code editor that became WSO2 Inte
 
 ## Selected work
 
-- **[Ballerina Workflow](/projects/#ballerina-workflow)** · 2026 – now. Durable workflows, human tasks and durable agents for Ballerina and WSO2 Integrator.
-- **[Agent-Flavored Markdown](/projects/#afm)** · 2025 – now. A portable, Markdown-based way to define AI agents. Paper at the IUI 2026 AgentCraft workshop.
-- **[WSO2 Integrator](/projects/#wso2-integrator)** · 2024 – 2025. Low-code and pro-code integration in one tool.
-- **[Ballerina Language & Compiler](/projects/#ballerina-compiler)** · 2016 – now. Compiler, runtime and language specification.
+<div class="cards">
+<a class="card" href="/projects/#ballerina-workflow"><strong>Ballerina Workflow</strong><span>2026 – now · Durable workflows, human tasks and durable agents for Ballerina and WSO2 Integrator.</span></a>
+<a class="card" href="/projects/#afm"><strong>Agent-Flavored Markdown</strong><span>2025 – now · Portable AI agents defined in Markdown. Paper at IUI 2026 AgentCraft.</span></a>
+<a class="card" href="/projects/#wso2-integrator"><strong>WSO2 Integrator</strong><span>2024 – 2025 · Low-code and pro-code integration in one tool.</span></a>
+<a class="card" href="/projects/#ballerina-compiler"><strong>Ballerina Language &amp; Compiler</strong><span>2016 – now · Compiler, runtime and language specification.</span></a>
+</div>
 
 [Full portfolio →](/projects/)

@@ -8,8 +8,8 @@ nav:
   - { title: Writing & Talks, url: /blog/ }
   - { title: Portfolio, url: /projects/ }
 social:
-  - { name: GitHub, url: "https://github.com/hasithaa" }
-  - { name: LinkedIn, url: "https://www.linkedin.com/in/hasithaaravinda/" }
-  - { name: Medium, url: "https://hasithaaravinda.medium.com/" }
-  - { name: YouTube, url: "https://www.youtube.com/@BeyondIntegrations" }
-  - { name: X, url: "https://x.com/HasithaAravinda" }
+  - { name: GitHub, icon: github, url: "https://github.com/hasithaa" }
+  - { name: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/hasithaaravinda/" }
+  - { name: Medium, icon: medium, url: "https://hasithaaravinda.medium.com/" }
+  - { name: YouTube, icon: youtube, url: "https://www.youtube.com/@BeyondIntegrations" }
+  - { name: X, icon: x, url: "https://x.com/HasithaAravinda" }

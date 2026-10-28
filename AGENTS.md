@@ -10,6 +10,7 @@ Personal site of Hasitha Aravinda. Plain static site: Markdown + YAML in, HTML o
 - `content/posts/<year>/<slug>.md`: posts hosted here, served at `/blog/<year>/<slug>/`. Front matter: `title`, `date`, `kind`, `venue`, `summary`; optional `when` (display text when the exact date is unknown) and `list: false` (hide from lists).
 - `content/links.yaml`: writing, videos and papers hosted elsewhere (Medium, YouTube, DEV, publishers). Same fields plus `url`.
 - `templates/base.html`, `static/style.css`, `static/site.js`: the one template, stylesheet and script.
+- `icons/*.svg`: inline icons ([Lucide](https://lucide.dev), ISC; X and Medium from [Simple Icons](https://simpleicons.org), CC0). Use `{{icon:<name>}}` in pages or the template; add new icons as files here.
 - `build.py`: renders everything into `site/` (git-ignored), plus `feed.xml` and `sitemap.xml`.
 
 `kind` is one of `post`, `talk`, `video`, `paper`.
@@ -24,6 +25,8 @@ python3 build.py && python3 -m http.server 8000 -d site
 Pushing to `v2` deploys to the `gh-pages` branch through `.github/workflows/deploy.yml`.
 
 ## Rules
+
+- Theme: colors are tokens in `static/style.css`; light, dark and a header switch (system, light, dark). Keep new colors as tokens defined for both themes.
 
 - Keep existing URLs working; other sites link to `/blog/<year>/<slug>/` and the `/projects/#<id>` anchors.
 - External content goes in `links.yaml`; do not copy Medium or YouTube text into the site.

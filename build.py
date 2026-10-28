@@ -1,6 +1,7 @@
 """Builds the site from content/ into site/. Usage: python3 build.py"""
 
 import html
+import re
 import shutil
 from datetime import date
 from email.utils import format_datetime
@@ -17,6 +18,23 @@ OUT = ROOT / "site"
 SITE = yaml.safe_load((CONTENT / "site.yaml").read_text())
 TEMPLATE = (ROOT / "templates" / "base.html").read_text()
 KIND_LABELS = {"post": "Post", "talk": "Talk", "video": "Video", "paper": "Paper"}
+KIND_ICONS = {"post": "file-text", "talk": "mic", "video": "play", "paper": "book-open"}
+YOUTUBE_ID = re.compile(r"(?:youtu\.be/|youtube\.com/(?:watch\?v=|embed/))([\w-]{11})")
+
+
+def icon(name):
+    """Inline SVG from icons/, sized by CSS and coloured by currentColor."""
+    svg = (ROOT / "icons" / f"{name}.svg").read_text()
+    svg = re.sub(r"<!--.*?-->|<title>.*?</title>", "", svg, flags=re.S)
+    svg = re.sub(r"\s+", " ", svg).strip()
+    svg = re.sub(r"<svg[^>]*>", lambda m: re.sub(r'\s(?:width|height|class|role)="[^"]*"', "", m.group(0)), svg, count=1)
+    if 'fill="none"' not in svg:
+        svg = svg.replace("<svg", '<svg fill="currentColor"', 1)
+    return svg.replace("<svg", '<svg class="icon" aria-hidden="true"', 1)
+
+
+def expand_icons(text):
+    return re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: icon(m.group(1)), text)
 
 
 def split_front_matter(text):
@@ -39,7 +57,11 @@ def nav_html(active):
 
 
 def social_html():
-    return " · ".join(f'<a href="{s["url"]}" rel="me">{s["name"]}</a>' for s in SITE["social"])
+    links = [
+        f'<a href="{s["url"]}" rel="me" title="{s["name"]}">{icon(s["icon"])}<span>{s["name"]}</span></a>'
+        for s in SITE["social"]
+    ]
+    return '<div class="social">' + "".join(links) + "</div>"
 
 
 def write_page(url, title, body, active="", description=None):
@@ -55,6 +77,7 @@ def write_page(url, title, body, active="", description=None):
         .replace("{{year}}", str(date.today().year))
         .replace("{{content}}", body)
     )
+    page = expand_icons(page)
     target = OUT / url.strip("/") / "index.html" if url.endswith("/") else OUT / url
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(page)
@@ -84,10 +107,16 @@ def entry_html(e):
     if e.get("venue"):
         meta.append(html.escape(e["venue"]))
     summary = f'<p>{html.escape(e["summary"])}</p>' if e.get("summary") else ""
+    video = YOUTUBE_ID.search(e["url"] if e["external"] else e["body"])
+    thumb = (
+        f'<img class="thumb" src="https://i.ytimg.com/vi/{video.group(1)}/mqdefault.jpg" alt="" loading="lazy">'
+        if video else ""
+    )
     return (
-        f'<li class="entry" data-kind="{e.get("kind", "post")}">'
-        f'<a class="entry-title" href="{e["url"]}"{target}>{html.escape(e["title"])}{arrow}</a>'
-        f'<span class="entry-meta">{" · ".join(meta)}</span>{summary}</li>'
+        f'<li class="entry" data-kind="{e.get("kind", "post")}"><a class="entry-link" href="{e["url"]}"{target}>'
+        f'<span class="entry-icon">{icon(KIND_ICONS[e.get("kind", "post")])}</span>'
+        f'<span class="entry-text"><span class="entry-title">{html.escape(e["title"])}{arrow}</span>'
+        f'<span class="entry-meta">{" · ".join(meta)}</span>{summary}</span>{thumb}</a></li>'
     )
 
 
@@ -134,6 +163,7 @@ def build():
         body = (
             body.replace("<!-- latest -->", entry_list(listed[: SITE["latest_count"]]))
             .replace("<!-- entries -->", blog_index(listed))
+            .replace("<!-- social -->", social_html())
         )
         write_page(meta["url"], meta["title"], render_markdown(body), meta["url"], meta.get("description"))
         urls.append(meta["url"])

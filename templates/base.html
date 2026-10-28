@@ -8,6 +8,9 @@
   <link rel="canonical" href="{{url}}">
   <link rel="icon" href="/img/favicon.png">
   <link rel="alternate" type="application/rss+xml" title="{{name}}" href="/feed.xml">
+  <script>
+    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
   <link rel="stylesheet" href="/style.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id={{analytics}}"></script>
   <script>
@@ -19,15 +22,22 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="site-name" href="/">{{name}}</a>
-    <nav>{{nav}}</nav>
+    <a class="site-name" href="/"><span class="mark" aria-hidden="true">HA</span>{{name}}</a>
+    <nav>
+      {{nav}}
+      <button type="button" class="theme-toggle" aria-label="Theme: system" title="Theme: system">
+        <span data-show="system">{{icon:monitor}}</span>
+        <span data-show="light">{{icon:sun}}</span>
+        <span data-show="dark">{{icon:moon}}</span>
+      </button>
+    </nav>
   </header>
   <main>
 {{content}}
   </main>
   <footer class="site-footer">
-    <p>{{social}}</p>
-    <p>© 2021–{{year}} {{name}} · <a href="/feed.xml">RSS</a></p>
+    {{social}}
+    <p>© 2021–{{year}} {{name}} · <a href="/feed.xml">{{icon:rss}} RSS</a></p>
   </footer>
   <script src="/site.js" defer></script>
 </body>
