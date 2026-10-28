@@ -1,6 +1,7 @@
 ---
 title: Writing & Talks
 url: /blog/
+scene: intro
 description: Posts, talks, videos and papers by Hasitha Aravinda.
 ---
 

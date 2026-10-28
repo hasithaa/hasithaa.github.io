@@ -1,0 +1,12 @@
+<!-- Home: one line that beats, then draws an event, a task, a decision, a human task, an agent and code. -->
+<svg class="pulse" viewBox="0 0 700 110" aria-hidden="true">
+  <path class="pulse-line" pathLength="1000" d="M0 50 H60 L70 28 L82 76 L94 20 L104 50 H140 A12 12 0 0 1 164 50 A12 12 0 0 1 140 50 M164 50 H190 V34 H250 V66 H190 V50 M250 50 H275 L295 30 L315 50 L295 70 L275 50 M315 50 H340 V32 H410 V68 H340 V50 M375 40 a6 6 0 1 1 0.1 0 M363 62 q12 -14 24 0 M410 50 H438 L449 31 H471 L482 50 L471 69 H449 L438 50 M482 50 H508 M522 30 q-8 0 -8 10 v4 q0 6 -6 6 q6 0 6 6 v4 q0 10 8 10 M548 30 q8 0 8 10 v4 q0 6 6 6 q-6 0 -6 6 v4 q0 10 -8 10 M562 50 H580 L590 34 L600 66 L610 50 H640 M640 50 a10 10 0 1 1 0.1 0 M650 50 H700"/>
+  <g class="pulse-labels">
+    <text x="152" y="96">event</text>
+    <text x="220" y="96">task</text>
+    <text x="295" y="96">decision</text>
+    <text x="375" y="96">human</text>
+    <text x="460" y="96">agent</text>
+    <text x="535" y="96">code</text>
+  </g>
+</svg>

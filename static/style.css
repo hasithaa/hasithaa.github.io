@@ -177,7 +177,7 @@ h3 { font-size: 1.05rem; margin: 1.6rem 0 0.2rem; }
 .thumb { flex: none; width: 128px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; }
 
 @media (max-width: 560px) {
-  .thumb { display: none; }
+  .thumb, .pulse-labels { display: none; }
   .site-header nav { gap: 14px; }
 }
 
@@ -345,6 +345,9 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
 .scene .spin { transform-box: fill-box; transform-origin: center; animation: spin 16s linear infinite; }
 .scene .blink { animation: blink 1.6s ease-in-out infinite; }
 .scene .type { stroke-dasharray: 100; animation: type 10s ease-out infinite; }
+.scene .arrive { animation: arrive 14s ease-in-out infinite; opacity: 0; }
+.scene .check { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; stroke-dashoffset: 100; animation: approve 14s ease-out infinite; }
+.scene .say { opacity: 0; animation: say 14s ease-out infinite; animation-delay: 5s; }
 
 @keyframes drift { from { transform: translate(-14px, 8px); } to { transform: translate(14px, -10px); } }
 @keyframes breathe { 50% { transform: scale(1.08); stroke-opacity: 0.9; } }
@@ -356,6 +359,14 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
   1.5%, 12.5% { opacity: 0.9; }
   14%, 100% { stroke-dashoffset: -999; opacity: 0; }
 }
+@keyframes arrive {
+  0% { opacity: 0; transform: translateY(0); }
+  2% { opacity: 1; }
+  12% { opacity: 1; transform: translateY(240px); }
+  14%, 100% { opacity: 0; transform: translateY(240px); }
+}
+@keyframes approve { 0%, 40% { stroke-dashoffset: 100; } 47%, 92% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes say { 0% { opacity: 0; transform: translateY(8px); } 6%, 60% { opacity: 1; transform: none; } 70%, 100% { opacity: 0; } }
 @keyframes type {
   0% { stroke-dashoffset: 100; }
   25%, 85% { stroke-dashoffset: 0; opacity: 1; }
@@ -385,3 +396,13 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
   .work { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
   @keyframes rise { from { opacity: 0.2; transform: translateY(28px); } }
 }
+
+/* Home: a line that beats and draws the things I work on, then fades and starts again. */
+.pulse { display: block; width: 100%; height: auto; margin: 4px 0 8px; color: var(--accent); }
+.pulse-line { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 12s ease-in-out infinite; }
+.pulse-labels text { fill: var(--muted); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle;
+  opacity: 0; animation: labels 12s ease-in-out infinite; }
+@keyframes draw { 0% { stroke-dashoffset: 1000; opacity: 1; } 55%, 88% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes labels { 0%, 45% { opacity: 0; } 60%, 88% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pulse-line { stroke-dashoffset: 0; } .pulse-labels text { opacity: 1; } }

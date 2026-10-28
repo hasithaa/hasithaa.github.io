@@ -1,6 +1,7 @@
 ---
 title: About
 url: /about/
+scene: intro
 description: About Hasitha Aravinda, architect at WSO2 and Ballerina compiler developer.
 ---
 

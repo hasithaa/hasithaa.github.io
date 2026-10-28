@@ -1,6 +1,7 @@
 ---
 title: Workflows
 url: /workflows/
+scene: workflow
 description: Durable workflow demos and resources for WSO2 Integrator and Ballerina, by Hasitha Aravinda.
 ---
 

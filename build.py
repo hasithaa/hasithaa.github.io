@@ -43,6 +43,7 @@ def scenes_html():
     svgs = []
     for path in sorted((ROOT / "scenes").glob("*.svg")):
         svg = re.sub(r"<!--.*?-->", "", path.read_text(), flags=re.S).strip()
+        svg = svg.replace('viewBox="0 0 1200 800"', 'viewBox="-200 -133 1600 1066"')  # drawn at 1200x800, shown at 75%
         svgs.append(svg.replace("<svg", f'<svg class="scene" data-for="{path.stem}"', 1))
     return '<div class="backdrop" aria-hidden="true">' + "".join(svgs) + "</div>"
 
@@ -80,7 +81,7 @@ def asset_url(path):
     return f"/{path}?v={digest}"
 
 
-def write_page(url, title, body, active="", description=None):
+def write_page(url, title, body, active="", description=None, scene=None):
     page_title = SITE["name"] if url == "/" else f'{title} · {SITE["name"]}'
     page = (
         TEMPLATE.replace("{{title}}", html.escape(page_title))
@@ -91,7 +92,8 @@ def write_page(url, title, body, active="", description=None):
         .replace("{{nav}}", nav_html(active))
         .replace("{{social}}", social_html())
         .replace("{{year}}", str(date.today().year))
-        .replace("{{content}}", body)
+        .replace("<body>", f'<body data-scene="{scene}">' if scene else "<body>")
+        .replace("{{content}}", (scenes_html() + body) if scene else body)
         .replace("{{css}}", asset_url("style.css"))
         .replace("{{js}}", asset_url("site.js"))
     )
@@ -226,8 +228,9 @@ def build():
             .replace("<!-- social -->", social_html())
             .replace("<!-- demos -->", demo_cards(demos))
             .replace("<!-- scenes -->", scenes_html())
+            .replace("<!-- pulse -->", re.sub(r"<!--.*?-->", "", (ROOT / "art" / "pulse.svg").read_text(), flags=re.S).strip())
         )
-        write_page(meta["url"], meta["title"], render_markdown(body), meta["url"], meta.get("description"))
+        write_page(meta["url"], meta["title"], render_markdown(body), meta["url"], meta.get("description"), meta.get("scene"))
         urls.append(meta["url"])
 
     for e in entries:

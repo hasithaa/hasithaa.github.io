@@ -1,40 +1,66 @@
-<!-- Durable workflow: start, a step, a wait for a person, an agent, a decision, two branches, end.
-     The token stops at the person and the ring turns while it waits. -->
+<!-- Durable workflow, as in the designer (right): an event arrives, a human task and an agent run side by side,
+     then a decision and payment. Left: the task inbox where a person approves, and the agent's chat.
+     Drawn outside 0-1200 on purpose: the build shows -200..1400, and the sides stay clear of the text. -->
 <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
   <g class="drift">
-    <path class="e" d="M114 520 H230 M350 520 H430 M510 520 H608 M672 520 H772 M800 492 V428 H900 M800 548 V612 H900 M1010 428 H1110 V506 M1010 612 H1110 V534"/>
-    <circle class="n" cx="100" cy="520" r="14"/>
-    <rect class="n" x="230" y="494" width="120" height="52" rx="12"/>
-    <path class="e" d="M262 514 H318 M262 528 H300"/>
-    <circle class="n" cx="470" cy="520" r="30"/>
-    <circle class="ring spin" cx="470" cy="520" r="40"/>
-    <circle class="e" cx="470" cy="511" r="7"/>
-    <path class="e" d="M456 536 Q470 516 484 536"/>
-    <polygon class="n breathe" points="672,520 656,547.7 624,547.7 608,520 624,492.3 656,492.3"/>
-    <circle class="dot blink" cx="630" cy="520" r="3"/>
-    <circle class="dot blink" cx="640" cy="520" r="3" style="animation-delay:.3s"/>
-    <circle class="dot blink" cx="650" cy="520" r="3" style="animation-delay:.6s"/>
-    <polygon class="n" points="800,492 828,520 800,548 772,520"/>
-    <rect class="n" x="900" y="404" width="110" height="48" rx="12"/>
-    <rect class="n" x="900" y="588" width="110" height="48" rx="12"/>
-    <circle class="n end" cx="1110" cy="520" r="14"/>
-    <path class="tok" pathLength="1000" d="M114 520 H230"/>
-    <path class="tok" pathLength="1000" d="M350 520 H430" style="animation-delay:2s"/>
-    <path class="tok" pathLength="1000" d="M510 520 H608" style="animation-delay:6s"/>
-    <path class="tok" pathLength="1000" d="M672 520 H772" style="animation-delay:8s"/>
-    <path class="tok" pathLength="1000" d="M800 492 V428 H900" style="animation-delay:10s"/>
-    <path class="tok" pathLength="1000" d="M1010 428 H1110 V506" style="animation-delay:12s"/>
+    <rect class="n" x="1010" y="80" width="360" height="640" rx="18"/>
+    <path class="e" d="M1010 118 H1370"/>
+    <circle class="dot" cx="1032" cy="99" r="5"/>
+    <circle class="dot" cx="1050" cy="99" r="5"/>
+    <circle class="dot" cx="1068" cy="99" r="5"/>
+
+    <path class="e" d="M1190 186 V220 M1190 268 V296 H1100 V330 M1190 296 H1290 V332 M1100 394 V440 H1290 V392 M1190 440 V472 M1190 528 V570 M1190 614 V646"/>
+    <rect class="n" x="1130" y="150" width="120" height="36" rx="18"/>
+    <rect class="n" x="1120" y="220" width="140" height="48" rx="12"/>
+    <rect class="e" x="1138" y="234" width="28" height="20" rx="3"/>
+    <path class="e" d="M1138 235 L1152 246 L1166 235 M1180 240 H1240 M1180 252 H1218"/>
+    <rect class="n breathe" x="1040" y="330" width="120" height="64" rx="12"/>
+    <circle class="e" cx="1068" cy="354" r="7"/>
+    <path class="e" d="M1054 378 Q1068 360 1082 378 M1094 354 H1142 M1094 370 H1128"/>
+    <polygon class="n breathe" points="1320,362 1305,388 1275,388 1260,362 1275,336 1305,336" style="animation-delay:-2.5s"/>
+    <circle class="dot blink" cx="1280" cy="362" r="3"/>
+    <circle class="dot blink" cx="1290" cy="362" r="3" style="animation-delay:.3s"/>
+    <circle class="dot blink" cx="1300" cy="362" r="3" style="animation-delay:.6s"/>
+    <polygon class="n" points="1190,472 1218,500 1190,528 1162,500"/>
+    <rect class="n" x="1130" y="570" width="120" height="44" rx="12"/>
+    <path class="e" d="M1162 592 H1218"/>
+    <circle class="n end" cx="1190" cy="660" r="14"/>
+
+    <path class="tok" pathLength="1000" d="M1190 186 V220" style="animation-delay:2s"/>
+    <path class="tok" pathLength="1000" d="M1190 268 V296 H1100 V330" style="animation-delay:4s"/>
+    <path class="tok" pathLength="1000" d="M1190 268 V296 H1290 V332" style="animation-delay:4s"/>
+    <path class="tok" pathLength="1000" d="M1100 394 V440 H1190 V472" style="animation-delay:9s"/>
+    <path class="tok" pathLength="1000" d="M1190 528 V570" style="animation-delay:11s"/>
+    <path class="tok" pathLength="1000" d="M1190 614 V646" style="animation-delay:12.5s"/>
   </g>
+
+  <path class="flow" d="M1190 -60 V150"/>
+  <g class="arrive">
+    <rect class="n" x="1176" y="-90" width="28" height="20" rx="3"/>
+    <path class="e" d="M1176 -89 L1190 -78 L1204 -89"/>
+  </g>
+
   <g class="drift alt">
-    <rect class="n" x="120" y="150" width="150" height="90" rx="12"/>
-    <rect class="n" x="140" y="170" width="150" height="90" rx="12"/>
-    <rect class="n breathe" x="160" y="190" width="150" height="90" rx="12"/>
-    <path class="e" d="M184 220 H260 M184 240 H230"/>
-    <path class="flow" d="M235 280 C260 340 330 380 350 494"/>
-  </g>
-  <g class="drift">
-    <path class="e spin" d="M1000 140 a40 40 0 1 1 -28 12"/>
-    <path class="e" d="M966 146 l6 6 l-10 4"/>
-    <path class="flow" d="M960 180 C880 260 860 360 865 404"/>
+    <rect class="n" x="-170" y="250" width="240" height="140" rx="14"/>
+    <path class="e" d="M-150 278 H-40"/>
+    <circle class="e" cx="-140" cy="314" r="9"/>
+    <path class="e" d="M-156 340 Q-140 320 -124 340 M-110 312 H40 M-110 330 H0"/>
+    <rect class="n" x="-30" y="352" width="84" height="26" rx="13"/>
+    <path class="check" pathLength="100" d="M-2 365 l6 6 l12 -12"/>
+    <path class="flow" d="M70 320 C300 320 500 360 1040 362"/>
+
+    <g class="say">
+      <rect class="n" x="-160" y="450" width="210" height="44" rx="14"/>
+      <path class="e" d="M-138 472 H10"/>
+    </g>
+    <g class="say" style="animation-delay:1.5s">
+      <rect class="n" x="-110" y="510" width="180" height="44" rx="14"/>
+      <path class="e" d="M-88 532 H40"/>
+    </g>
+    <g class="say" style="animation-delay:3s">
+      <rect class="n" x="-160" y="570" width="170" height="44" rx="14"/>
+      <path class="e" d="M-138 592 H-10"/>
+    </g>
+    <path class="flow" d="M50 472 C400 472 900 420 1260 380"/>
   </g>
 </svg>

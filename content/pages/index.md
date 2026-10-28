@@ -7,6 +7,8 @@ url: /
 
 <p class="lede">Architect at WSO2. I build programming languages, durable workflows and AI agents.</p>
 
+<!-- pulse -->
+
 <!-- social -->
 
 ## <span class="now-dot"></span>Now

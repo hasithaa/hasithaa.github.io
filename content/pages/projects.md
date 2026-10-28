@@ -25,15 +25,15 @@ description: Projects Hasitha Aravinda has led and built, from BPEL engines to B
 
 [Demos](/workflows/) · [Docs](https://wso2.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow) · [Workflows that wait for people (Medium)](https://hasithaaravinda.medium.com/workflows-that-wait-for-people-8ac3b5fc3635) · [Video: human tasks](https://youtu.be/_b84Ndbk1H8) · [Video: an agent that follows the policy](https://youtu.be/XFb49Koodf8) · [module-ballerina-workflow](https://github.com/ballerina-platform/module-ballerina-workflow)
 
-Durable Workflow is the effort that brings long-running business processes into WSO2 Integrator: an expense claim that waits days for a bill and a manager's decision, or an AI agent whose work must survive a restart. I lead its design, from the language up to the tools people use every day. It covers:
+Long-running business processes in WSO2 Integrator, on durable execution with Temporal.
 
-- **The `ballerina/workflow` module.** A workflow is an ordinary Ballerina function that the runtime makes durable. It waits for events and people, retries failed steps, and continues after a restart.
-- **Human tasks.** Steps that wait for a person, assigned by role, with an inbox to act on them.
-- **Durable agents and durable agentic workflows.** AI agents that run as workflow steps, keep their state, ask a person when unsure, and leave the final decisions to people.
-- **The low-code experience.** Workflow nodes, forms and an overview in the WSO2 Integrator designer, which edit the same code.
-- **Running it in production.** A management API to inspect, retry and recover running instances, and traces, metrics and an audit trail of task decisions in the Integration Control Plane.
+- **`ballerina/workflow`**: workflows are Ballerina functions. State is persisted, so a workflow can wait for events and people, retry steps and resume after a restart.
+- **Human tasks**: role-based assignment, a task inbox, and decisions recorded in the workflow history.
+- **Durable agents and durable agentic workflows**: AI agents run as workflow steps, keep their conversation state, ask people for input, and gate actions on approval.
+- **Low-code**: workflow, task and agent nodes, their forms, and a workflow overview in the WSO2 Integrator designer, all editing the same source.
+- **Operations**: the Workflow Management API to inspect, retry and recover instances; traces, metrics and a task-decision audit trail in the Integration Control Plane.
 
-My part: I write the design proposals and build the core of the module. I also review the designs and pull requests across the module, the designer and the Control Plane with the teams that build them. Before each release I test it against real use cases, and those became the [demos and videos](/workflows/).
+I designed the module API and its runtime model, implemented the core, and review the designer and Control Plane designs.
 
 <div class="tags"><span>Durable Execution</span> <span>Human Tasks</span> <span>Durable Agents</span> <span>Low-Code</span> <span>Ballerina</span> <span>WSO2 Integrator</span></div>
 </div>
@@ -94,7 +94,7 @@ I led the design and architecture of Ballerina Integrator, the successor to an e
 
 [ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) · [ballerina.io](https://ballerina.io) · [Language specification](https://ballerina.io/spec/lang/master) · [Talk: Programming Languages and Compilers](/blog/2025/wso2-tech-conf-compilers/) · [Ballerina identifiers](/blog/2023/ballerina-identifiers/) · [The setup-ballerina GitHub Action](/blog/2023/setup-ballerina/)
 
-I joined the compiler and runtime team in the early days, when Ballerina was still experimenting with DSL-like syntax, and helped build the compiler that integration developers use today. I have contributed to the language specification from the start of the design process, through several iterations, feature changes, re-implementations and design verifications. I still work on the language and its tooling.
+Compiler and runtime work since the early, DSL-like versions of Ballerina, and the language specification through its iterations, re-implementations and design verifications. I still work on the language and its tooling.
 
 <div class="tags"><span>Ballerina</span> <span>Compiler Design</span> <span>Language Specification</span> <span>Java</span></div>
 </div>
@@ -121,7 +121,7 @@ I joined the compiler and runtime team in the early days, when Ballerina was sti
 
 [Carbon Business Process](https://github.com/wso2/carbon-business-process) · [Product BPS (archived)](https://github.com/wso2-attic/product-bps) · [Apache ODE fork](https://github.com/wso2/wso2-ode)
 
-An open-source business process server that ran processes written in BPMN, WS-BPEL and WS-HumanTask, using a WSO2-maintained fork of Apache ODE as its BPEL engine. I added features including HumanTask coordination, a caching layer and several UX improvements. The product is retired, but I am always happy to talk about it.
+An open-source business process server that ran processes written in BPMN, WS-BPEL and WS-HumanTask, using a WSO2-maintained fork of Apache ODE as its BPEL engine. I added features including HumanTask coordination, a caching layer and several UX improvements. The product is retired.
 
 </div>
 
