@@ -1,0 +1,59 @@
+# Workflow demos: one entry each. The build makes a card on /workflows/ and a page at /workflows/<slug>/.
+- slug: claim-approval
+  title: Workflows that wait for people
+  tagline: An expense claim approval run by a durable workflow.
+  image: /img/demos/claim-approval-title.jpg
+  repo: https://github.com/hasithaa/workflow-demo-simple-claim-app
+  video: https://youtu.be/_b84Ndbk1H8
+  article: https://hasithaaravinda.medium.com/workflows-that-wait-for-people-8ac3b5fc3635
+  versions: ballerina/workflow 1.0.2 · Ballerina 2201.14.1 · ICP 2.1.0
+  shows: [Durable workflow, Wait for an event, Human task by role, Workflow Management API, ICP monitoring]
+  scenario: |
+    Ann, a sales executive, files expense claims; Jane, her manager, approves them. Every claim follows the same
+    steps, and days can pass between any two of them: the workflow starts, waits for Ann's bill, then asks a manager
+    to decide. Nothing polls, nothing is lost on a restart, and the apps around it hold no process logic.
+  figures:
+    - { src: /img/demos/claim-approval-use-case.jpg, alt: "Ann files claims, Jane approves them: submit, attach the bill, a manager decides, recorded" }
+    - { src: /img/demos/claim-approval-architecture.jpg, alt: "The app, the integration built in WSO2 Integrator, and the platform" }
+  run: |
+    You need Docker with Compose and about 6 GB of memory for Docker.
+
+    ```sh
+    git clone https://github.com/hasithaa/workflow-demo-simple-claim-app
+    cd workflow-demo-simple-claim-app
+    docker compose up -d --build
+    ```
+
+    Open <http://localhost:8080> and sign in as `ann@example.com` / `demo12345` to file a claim, and as
+    `jane@example.com` / `demo12345` (in a private window) to approve it. The README walks through each step and the
+    ICP console.
+
+- slug: agentic-claim
+  title: An agent that follows the policy
+  tagline: The same expense claim, run by a durable AI agent that checks the bill against a plain-language policy.
+  image: /img/demos/agentic-claim-title.jpg
+  repo: https://github.com/hasithaa/workflow-demo-agentic-claim-system
+  video: https://youtu.be/XFb49Koodf8
+  versions: ballerina/workflow 1.0.2 · Ballerina 2201.14.1 · ICP 2.1.0
+  shows: [Durable agent, Bill reading from an image, Asking the employee, Human task with the agent's assessment, Approval-gated payment, ICP monitoring]
+  scenario: |
+    Ann claims 420.50 for a team dinner with a customer. The agent reads the bill, checks it against the company's
+    expense policy written in plain language, asks Ann who attended, and hands her manager, Jane, its assessment:
+    the wine is left out, the per-person amount is under the limit, and the total matches. Payment waits for Ivy in
+    finance to release it. The agent checks; people decide.
+  figures:
+    - { src: /img/demos/agentic-claim-judgment.jpg, alt: "Real claims need judgment: is the wine reimbursable, who was at the dinner, does the bill match" }
+    - { src: /img/demos/agentic-claim-use-case.jpg, alt: "Ann filed, uploaded and answered; the agent read the bill, did the sums and asked; Jane approved; Ivy released the money" }
+  run: |
+    You need Docker with Compose (about 6 GB of memory for Docker) and a WSO2 model provider token for the agent:
+    in WSO2 Integrator, run **Configure default WSO2 Model Provider**, then copy the token into `config/model.toml`
+    as the README describes.
+
+    ```sh
+    git clone https://github.com/hasithaa/workflow-demo-agentic-claim-system
+    cd workflow-demo-agentic-claim-system
+    docker compose up -d --build
+    ```
+
+    Open <http://localhost:8080> and sign in as Ann, Jane or Ivy (`ann@`, `jane@`, `ivy@example.com`, password
+    `demo12345`).

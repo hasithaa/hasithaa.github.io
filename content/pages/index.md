@@ -11,7 +11,7 @@ url: /
 
 ## <span class="now-dot"></span>Now
 
-I lead the design of [Ballerina Workflow](/projects/#ballerina-workflow), which brings durable workflows to Ballerina and WSO2 Integrator. These are long-running processes that wait for people, events and AI agents, and keep going after restarts. I also started [Agent-Flavored Markdown (AFM)](/projects/#afm), an open specification for portable AI agents written in Markdown.
+I lead the design of [Ballerina Workflow](/projects/#ballerina-workflow), which brings durable workflows to Ballerina and WSO2 Integrator. These are long-running processes that wait for people, events and AI agents, and keep going after restarts. I also started [Agent-Flavored Markdown (AFM)](/projects/#afm), an open specification for portable AI agents written in Markdown. Want to try workflows? Start with the [demos](/workflows/).
 
 Before this, I led the architecture of the low-code editor that became WSO2 Integrator. I have worked on the Ballerina compiler and language specification since 2016, and I have been at WSO2 for 13+ years. BSc (Hons) in Computer Science and Engineering, University of Moratuwa. Outside work, I play Dota 2.
 

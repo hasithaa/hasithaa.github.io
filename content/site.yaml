@@ -5,6 +5,7 @@ analytics: G-Y0NC9SXE07
 latest_count: 4
 nav:
   - { title: Home, url: / }
+  - { title: Workflows, url: /workflows/ }
   - { title: Writing & Talks, url: /blog/ }
   - { title: Portfolio, url: /projects/ }
 social:

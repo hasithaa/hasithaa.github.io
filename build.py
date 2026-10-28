@@ -144,6 +144,47 @@ def blog_index(listed):
     return "\n".join(parts)
 
 
+DOCS_WORKFLOW = "https://wso2.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow"
+
+
+def demo_cards(demos):
+    cards = []
+    for d in demos:
+        tags = "".join(f"<span>{html.escape(t)}</span>" for t in d["shows"][:4])
+        cards.append(
+            f'<a class="demo-card" href="/workflows/{d["slug"]}/">'
+            f'<img src="{d["image"]}" alt="" loading="lazy">'
+            f'<span class="demo-body"><strong>{html.escape(d["title"])}</strong>'
+            f'<span>{html.escape(d["tagline"])}</span><span class="tags">{tags}</span></span></a>'
+        )
+    return '<div class="demo-cards">' + "".join(cards) + "</div>"
+
+
+def demo_page(d):
+    video = YOUTUBE_ID.search(d["video"]).group(1)
+    buttons = [f'<a class="button primary" href="{d["video"]}">{icon("youtube")} Watch on YouTube</a>',
+               f'<a class="button" href="{d["repo"]}">{icon("github")} Get the code</a>']
+    if d.get("article"):
+        buttons.append(f'<a class="button" href="{d["article"]}">{icon("medium")} Read the article</a>')
+    figures = "".join(
+        f'<figure><img src="{f["src"]}" alt="{html.escape(f["alt"])}" loading="lazy"></figure>' for f in d["figures"]
+    )
+    tags = "".join(f"<span>{html.escape(t)}</span>" for t in d["shows"])
+    return (
+        f'<p class="crumbs"><a href="/workflows/">Workflows</a> / Demo</p>'
+        f'<h1>{html.escape(d["title"])}</h1><p class="lede">{html.escape(d["tagline"])}</p>'
+        f'<div class="cta">{"".join(buttons)}</div>'
+        f'<div class="video"><iframe src="https://www.youtube.com/embed/{video}" title="{html.escape(d["title"])}" '
+        f'allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>'
+        f"<h2>The use case</h2>{render_markdown(d['scenario'])}{figures}"
+        f'<h2>What it shows</h2><div class="tags">{tags}</div>'
+        f"<h2>Run it</h2>{render_markdown(d['run'])}"
+        f'<p class="entry-meta">Built with {html.escape(d["versions"])}</p>'
+        f'<h2>Learn more</h2><p>The <a href="{DOCS_WORKFLOW}">workflow docs</a> explain each building block. '
+        f'See <a href="/workflows/">all demos</a>.</p>'
+    )
+
+
 def feed_xml(listed):
     items = []
     for e in listed:
@@ -165,6 +206,7 @@ def build():
     shutil.rmtree(OUT, ignore_errors=True)
     shutil.copytree(ROOT / "static", OUT)
     entries, listed = load_entries()
+    demos = yaml.safe_load((CONTENT / "demos.yaml").read_text())
     urls = []
 
     for path in sorted((CONTENT / "pages").glob("*.md")):
@@ -173,6 +215,7 @@ def build():
             body.replace("<!-- latest -->", entry_list(listed[: SITE["latest_count"]]))
             .replace("<!-- entries -->", blog_index(listed))
             .replace("<!-- social -->", social_html())
+            .replace("<!-- demos -->", demo_cards(demos))
         )
         write_page(meta["url"], meta["title"], render_markdown(body), meta["url"], meta.get("description"))
         urls.append(meta["url"])
@@ -185,6 +228,11 @@ def build():
         body = f'<article><h1>{html.escape(e["title"])}</h1>{header}{render_markdown(e["body"])}</article>'
         write_page(e["url"], e["title"], body, "/blog/", e.get("summary"))
         urls.append(e["url"])
+
+    for d in demos:
+        url = f"/workflows/{d['slug']}/"
+        write_page(url, d["title"], demo_page(d), "/workflows/", d["tagline"])
+        urls.append(url)
 
     write_page("404.html", "Not found", '<h1>Not found</h1><p><a href="/">Back home</a></p>')
     (OUT / "feed.xml").write_text(feed_xml(listed))
