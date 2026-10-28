@@ -82,8 +82,8 @@ a { color: var(--accent); text-underline-offset: 2px; }
 }
 .site-name:hover .mark { transform: rotate(-8deg) scale(1.06); }
 
-.site-header nav { display: flex; align-items: center; gap: 18px; }
-.site-header nav a { color: var(--muted); text-decoration: none; }
+.site-header nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+.site-header nav a { color: var(--muted); text-decoration: none; white-space: nowrap; }
 .site-header nav a:hover, .site-header nav a[aria-current] { color: var(--fg); }
 
 .theme-toggle {
@@ -289,3 +289,99 @@ figure { margin: 1rem 0; }
 figure img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
 .crumbs { font-size: 0.86rem; color: var(--muted); margin: 0 0 8px; }
 .crumbs a { color: var(--muted); }
+
+/* Portfolio backdrop: one SVG scene per project, chosen by the section in view (body[data-scene]). */
+@property --tint { syntax: "<color>"; inherits: true; initial-value: #3f51b5; }
+
+[data-scene] { --tint: var(--tint-l); }
+[data-scene="intro"] { --tint-l: #3f51b5; --tint-d: #8c9eff; }
+[data-scene="workflow"] { --tint-l: #0f7f81; --tint-d: #4fd1c5; }
+[data-scene="afm"] { --tint-l: #7c3aed; --tint-d: #b794f6; }
+[data-scene="integrator"] { --tint-l: #c2410c; --tint-d: #ffa94d; }
+[data-scene="compiler"] { --tint-l: #1d6fb8; --tint-d: #74c0fc; }
+[data-scene="bpm"] { --tint-l: #a16207; --tint-d: #f2c94c; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) [data-scene] { --tint: var(--tint-d); }
+}
+:root[data-theme="dark"] [data-scene] { --tint: var(--tint-d); }
+
+body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.2s; }
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  color: var(--tint);
+  background:
+    radial-gradient(circle at 85% 15%, color-mix(in srgb, var(--tint) 12%, transparent), transparent 45%),
+    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--tint) 9%, transparent), transparent 45%),
+    radial-gradient(color-mix(in srgb, var(--fg) 9%, transparent) 1px, transparent 1.5px) 0 0 / 28px 28px;
+  -webkit-mask-image: linear-gradient(90deg, #000, rgb(0 0 0 / 30%) 32%, rgb(0 0 0 / 30%) 68%, #000);
+  mask-image: linear-gradient(90deg, #000, rgb(0 0 0 / 30%) 32%, rgb(0 0 0 / 30%) 68%, #000);
+}
+.scene { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.4s ease; }
+.scene * { animation-play-state: paused; }
+[data-scene="intro"] [data-for="intro"], [data-scene="workflow"] [data-for="workflow"], [data-scene="afm"] [data-for="afm"],
+[data-scene="integrator"] [data-for="integrator"], [data-scene="compiler"] [data-for="compiler"], [data-scene="bpm"] [data-for="bpm"] { opacity: 1; }
+[data-scene="intro"] [data-for="intro"] *, [data-scene="workflow"] [data-for="workflow"] *, [data-scene="afm"] [data-for="afm"] *,
+[data-scene="integrator"] [data-for="integrator"] *, [data-scene="compiler"] [data-for="compiler"] *, [data-scene="bpm"] [data-for="bpm"] * { animation-play-state: running; }
+
+.scene .e, .scene .flow, .scene .line, .scene .ring, .scene .tok { fill: none; stroke: currentColor; stroke-linecap: round; }
+.scene .e { stroke-opacity: 0.35; stroke-width: 1.5; }
+.scene .n { fill: color-mix(in srgb, currentColor 7%, var(--bg)); stroke: currentColor; stroke-opacity: 0.5; stroke-width: 1.5; }
+.scene .end { stroke-width: 4; }
+.scene .line { stroke-opacity: 0.3; stroke-width: 6; }
+.scene .flow { stroke-opacity: 0.35; stroke-width: 1.5; stroke-dasharray: 5 9; animation: flow 2.4s linear infinite; }
+.scene .ring { stroke-opacity: 0.5; stroke-width: 1.5; stroke-dasharray: 4 8; }
+.scene .tok { stroke-width: 9; stroke-dasharray: 1 999; stroke-dashoffset: 0; opacity: 0; animation: travel 14s linear infinite; }
+.scene .dot { fill: currentColor; fill-opacity: 0.6; }
+.scene .txt { fill: currentColor; fill-opacity: 0.45; font: 600 18px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.scene .mid { text-anchor: middle; font-size: 15px; }
+
+.scene .drift { animation: drift 22s ease-in-out infinite alternate; }
+.scene .drift.alt { animation-duration: 28s; animation-direction: alternate-reverse; }
+.scene .breathe { transform-box: fill-box; transform-origin: center; animation: breathe 5s ease-in-out infinite; }
+.scene .spin { transform-box: fill-box; transform-origin: center; animation: spin 16s linear infinite; }
+.scene .blink { animation: blink 1.6s ease-in-out infinite; }
+.scene .type { stroke-dasharray: 100; animation: type 10s ease-out infinite; }
+
+@keyframes drift { from { transform: translate(-14px, 8px); } to { transform: translate(14px, -10px); } }
+@keyframes breathe { 50% { transform: scale(1.08); stroke-opacity: 0.9; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink { 50% { opacity: 0.15; } }
+@keyframes flow { to { stroke-dashoffset: -28; } }
+@keyframes travel {
+  0% { stroke-dashoffset: 0; opacity: 0; }
+  1.5%, 12.5% { opacity: 0.9; }
+  14%, 100% { stroke-dashoffset: -999; opacity: 0; }
+}
+@keyframes type {
+  0% { stroke-dashoffset: 100; }
+  25%, 85% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* Portfolio sections take their scene's tint and rise in as they scroll into view. */
+.work[data-scene], [data-scene] .work { border-left-color: color-mix(in srgb, var(--tint) 60%, var(--line)); padding: 4px 0 4px 18px; margin: 3.2rem 0; }
+.work h3 { font-size: 1.3rem; }
+.work h3::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+  background: var(--tint);
+  transform: rotate(45deg);
+  vertical-align: 0.12em;
+}
+.work .tags span { background: color-mix(in srgb, var(--tint) 12%, transparent); }
+.work ul { padding-left: 1.2em; }
+.work li { margin: 0.35rem 0; }
+.work li::marker { color: var(--tint); }
+
+@supports (animation-timeline: view()) {
+  .work { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+  @keyframes rise { from { opacity: 0.2; transform: translateY(28px); } }
+}

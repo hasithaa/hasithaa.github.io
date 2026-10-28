@@ -1,0 +1,26 @@
+<!-- WSO2 Integrator: the same integration as code (left) and as a flow diagram (right), kept in step. -->
+<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <g class="drift">
+    <rect class="n" x="110" y="180" width="320" height="420" rx="16"/>
+    <path class="line" d="M140 222 H260 M140 252 H200 M216 252 H330 M160 282 H300 M160 312 H240 M256 312 H380 M180 342 H330 M180 372 H280 M160 402 H220 M160 432 H350 M180 462 H300 M160 492 H260 M140 522 H170"/>
+    <rect class="dot blink" x="276" y="364" width="3" height="16"/>
+  </g>
+  <path class="flow" d="M440 390 H620"/>
+  <path class="flow" d="M620 410 H440"/>
+  <g class="drift alt">
+    <rect class="n" x="770" y="120" width="140" height="44" rx="22"/>
+    <path class="e" d="M840 164 V220 M840 276 V320 M840 376 L760 420 V470 M840 376 L920 420 V470 M760 526 V560 L840 600 M920 526 V560 L840 600 V640"/>
+    <rect class="n" x="770" y="220" width="140" height="56" rx="12"/>
+    <polygon class="n" points="840,320 868,348 840,376 812,348"/>
+    <rect class="n breathe" x="700" y="470" width="120" height="56" rx="12"/>
+    <rect class="n breathe" x="860" y="470" width="120" height="56" rx="12" style="animation-delay:-2s"/>
+    <circle class="n end" cx="840" cy="656" r="14"/>
+    <path class="tok" pathLength="1000" d="M840 164 V220"/>
+    <path class="tok" pathLength="1000" d="M840 276 V320" style="animation-delay:2s"/>
+    <path class="tok" pathLength="1000" d="M840 376 L760 420 V470" style="animation-delay:4s"/>
+    <path class="tok" pathLength="1000" d="M760 526 V560 L840 600 V640" style="animation-delay:6s"/>
+    <circle class="n" cx="1060" cy="248" r="10"/>
+    <circle class="n" cx="1080" cy="498" r="10"/>
+    <path class="flow" d="M910 248 H1050 M980 498 H1070"/>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<!-- Intro: a loose graph of nodes and edges. -->
+<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <g class="drift">
+    <path class="e" d="M140 170 L300 260 L250 430 L120 520 M300 260 L470 200 M250 430 L420 470"/>
+    <path class="flow" d="M470 200 L420 470"/>
+    <circle class="n breathe" cx="140" cy="170" r="10"/>
+    <circle class="n breathe" cx="300" cy="260" r="14" style="animation-delay:-1s"/>
+    <circle class="n breathe" cx="250" cy="430" r="11" style="animation-delay:-2s"/>
+    <circle class="n" cx="120" cy="520" r="8"/>
+    <circle class="n breathe" cx="470" cy="200" r="9" style="animation-delay:-3s"/>
+    <circle class="n" cx="420" cy="470" r="12"/>
+    <path class="tok" pathLength="1000" d="M140 170 L300 260 L250 430 L120 520"/>
+  </g>
+  <g class="drift alt">
+    <path class="e" d="M760 620 L900 540 L1060 600 L1100 420 M900 540 L860 380 L1000 280 L1100 420 M860 380 L720 300"/>
+    <path class="flow" d="M720 300 L760 620"/>
+    <circle class="n breathe" cx="760" cy="620" r="10" style="animation-delay:-1.5s"/>
+    <circle class="n breathe" cx="900" cy="540" r="15"/>
+    <circle class="n" cx="1060" cy="600" r="8"/>
+    <circle class="n breathe" cx="1100" cy="420" r="12" style="animation-delay:-2.5s"/>
+    <circle class="n" cx="860" cy="380" r="10"/>
+    <circle class="n breathe" cx="1000" cy="280" r="9" style="animation-delay:-3.5s"/>
+    <circle class="n" cx="720" cy="300" r="7"/>
+    <path class="tok" pathLength="1000" d="M760 620 L900 540 L860 380 L1000 280 L1100 420" style="animation-delay:-7s"/>
+  </g>
+</svg>

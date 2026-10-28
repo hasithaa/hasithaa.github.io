@@ -48,3 +48,17 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
     setTimeout(() => (button.textContent = "Copy BibTeX"), 2000);
   });
 });
+
+// Portfolio backdrop: the last section whose top has passed the middle of the screen picks the scene; CSS does the rest.
+const sections = [...document.querySelectorAll("main [data-scene]")];
+if (sections.length) {
+  let queued = false;
+  const pick = () => {
+    queued = false;
+    const middle = innerHeight * 0.5;
+    const current = scrollY < 40 ? sections[0] : sections.filter((s) => s.getBoundingClientRect().top < middle).pop();
+    document.body.dataset.scene = (current || sections[0]).dataset.scene;
+  };
+  addEventListener("scroll", () => queued || (queued = requestAnimationFrame(pick)), { passive: true });
+  pick();
+}

@@ -1,0 +1,37 @@
+<!-- Compiler: a syntax tree, and the pipeline from source to code underneath. -->
+<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <g class="drift">
+    <path class="e" d="M600 150 L420 260 M600 150 L780 260 M420 260 L330 370 M420 260 L500 370 M780 260 L720 370 M780 260 L880 370 M880 370 L820 470 M880 370 L950 470 M500 370 L470 470 M500 370 L550 470"/>
+    <circle class="n breathe" cx="600" cy="150" r="24"/>
+    <circle class="n breathe" cx="420" cy="260" r="20" style="animation-delay:-1s"/>
+    <circle class="n breathe" cx="780" cy="260" r="20" style="animation-delay:-2s"/>
+    <circle class="n" cx="330" cy="370" r="16"/>
+    <circle class="n" cx="500" cy="370" r="16"/>
+    <circle class="n" cx="720" cy="370" r="16"/>
+    <circle class="n" cx="880" cy="370" r="16"/>
+    <circle class="n" cx="470" cy="470" r="12"/>
+    <circle class="n" cx="550" cy="470" r="12"/>
+    <circle class="n" cx="820" cy="470" r="12"/>
+    <circle class="n" cx="950" cy="470" r="12"/>
+    <text class="txt mid" x="600" y="156">fn</text>
+    <text class="txt mid" x="420" y="266">( )</text>
+    <text class="txt mid" x="780" y="266">{ }</text>
+    <text class="txt mid" x="880" y="376">=</text>
+    <text class="txt mid" x="500" y="376">:</text>
+    <path class="tok" pathLength="1000" d="M600 150 L780 260 L880 370 L950 470"/>
+    <path class="tok" pathLength="1000" d="M600 150 L420 260 L500 370 L470 470" style="animation-delay:5s"/>
+  </g>
+  <g class="drift alt">
+    <path class="flow" d="M250 660 H330 M450 660 H530 M650 660 H730 M850 660 H930"/>
+    <rect class="n" x="130" y="636" width="120" height="48" rx="10"/>
+    <rect class="n" x="330" y="636" width="120" height="48" rx="10"/>
+    <rect class="n" x="530" y="636" width="120" height="48" rx="10"/>
+    <rect class="n" x="730" y="636" width="120" height="48" rx="10"/>
+    <rect class="n" x="930" y="636" width="120" height="48" rx="10"/>
+    <text class="txt mid" x="190" y="666">source</text>
+    <text class="txt mid" x="390" y="666">parse</text>
+    <text class="txt mid" x="590" y="666">check</text>
+    <text class="txt mid" x="790" y="666">desugar</text>
+    <text class="txt mid" x="990" y="666">codegen</text>
+  </g>
+</svg>

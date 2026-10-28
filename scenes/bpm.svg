@@ -1,0 +1,22 @@
+<!-- Earlier work: a BPMN process with a start event, tasks, a gateway, a human task and an end event. -->
+<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <g class="drift">
+    <path class="e" d="M138 400 H220 M350 400 H450 M500 350 V260 H600 M500 450 V540 H600 M730 260 H800 V350 M730 540 H800 V450 M850 400 H940"/>
+    <circle class="n" cx="120" cy="400" r="18"/>
+    <rect class="n" x="220" y="364" width="130" height="72" rx="12"/>
+    <polygon class="n" points="500,350 550,400 500,450 450,400"/>
+    <path class="e" d="M484 384 L516 416 M516 384 L484 416"/>
+    <rect class="n breathe" x="600" y="224" width="130" height="72" rx="12"/>
+    <rect class="n" x="600" y="504" width="130" height="72" rx="12"/>
+    <circle class="e" cx="622" cy="240" r="6"/>
+    <path class="e" d="M612 256 Q622 244 632 256"/>
+    <polygon class="n" points="800,350 850,400 800,450 750,400"/>
+    <path class="e" d="M800 378 V422 M778 400 H822"/>
+    <circle class="n end" cx="960" cy="400" r="18"/>
+    <path class="tok" pathLength="1000" d="M138 400 H220"/>
+    <path class="tok" pathLength="1000" d="M350 400 H450" style="animation-delay:2s"/>
+    <path class="tok" pathLength="1000" d="M500 350 V260 H600" style="animation-delay:4s"/>
+    <path class="tok" pathLength="1000" d="M730 260 H800 V350" style="animation-delay:7s"/>
+    <path class="tok" pathLength="1000" d="M850 400 H940" style="animation-delay:9s"/>
+  </g>
+</svg>

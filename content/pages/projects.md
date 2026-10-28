@@ -4,26 +4,41 @@ url: /projects/
 description: Projects Hasitha Aravinda has led and built, from BPEL engines to Ballerina, WSO2 Integrator, durable workflows and AFM.
 ---
 
+<!-- scenes -->
+
+<div data-scene="intro" markdown="1">
+
 # Portfolio
 
 <p class="lede">Architect, Integration at <a href="https://wso2.com">WSO2</a> · Compiler developer, <a href="https://github.com/ballerina-platform/">Ballerina</a> · 2013 – now</p>
 
 <div class="tags"><span>Ballerina</span> <span>Compiler Design</span> <span>Durable Workflows</span> <span>AI Agents</span> <span>Developer Experience</span> <span>Low-Code Editors</span> <span>WSO2 Integrator</span> <span>Integration</span> <span>Java</span> <span>BPMN</span> <span>WS-BPEL</span></div>
 
-<div class="work current" markdown="1">
-
-### Ballerina Workflow { #ballerina-workflow }
-
-<span class="when">2026 – now · Design lead</span>
-
-[module-ballerina-workflow](https://github.com/ballerina-platform/module-ballerina-workflow) · [Workflows that wait for people (Medium)](https://hasithaaravinda.medium.com/workflows-that-wait-for-people-8ac3b5fc3635) · [Video walkthrough](https://youtu.be/_b84Ndbk1H8)
-
-I lead the design and implementation of workflow support for Ballerina and WSO2 Integrator. A workflow is ordinary Ballerina code that the runtime makes durable. It can wait days for an event or a person's decision, retry failed steps, and continue after a restart. On top of that core, the module adds human tasks with roles and an inbox, durable AI agents that run as workflow steps, a management API to inspect, retry and recover running instances, and monitoring in the Integration Control Plane. The visual designer in WSO2 Integrator edits the same code.
-
-<div class="tags"><span>Ballerina</span> <span>Durable Execution</span> <span>Human Tasks</span> <span>AI Agents</span> <span>WSO2 Integrator</span></div>
 </div>
 
-<div class="work current" markdown="1">
+<div class="work current" data-scene="workflow" markdown="1">
+
+### Durable Workflow { #durable-workflow }
+
+<span id="ballerina-workflow"></span>
+<span class="when">2026 – now · Design lead</span>
+
+[Demos](/workflows/) · [Docs](https://wso2.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow) · [Workflows that wait for people (Medium)](https://hasithaaravinda.medium.com/workflows-that-wait-for-people-8ac3b5fc3635) · [Video: human tasks](https://youtu.be/_b84Ndbk1H8) · [Video: an agent that follows the policy](https://youtu.be/XFb49Koodf8) · [module-ballerina-workflow](https://github.com/ballerina-platform/module-ballerina-workflow)
+
+Durable Workflow is the effort that brings long-running business processes into WSO2 Integrator: an expense claim that waits days for a bill and a manager's decision, or an AI agent whose work must survive a restart. I lead its design, from the language up to the tools people use every day. It covers:
+
+- **The `ballerina/workflow` module.** A workflow is an ordinary Ballerina function that the runtime makes durable. It waits for events and people, retries failed steps, and continues after a restart.
+- **Human tasks.** Steps that wait for a person, assigned by role, with an inbox to act on them.
+- **Durable agents and durable agentic workflows.** AI agents that run as workflow steps, keep their state, ask a person when unsure, and leave the final decisions to people.
+- **The low-code experience.** Workflow nodes, forms and an overview in the WSO2 Integrator designer, which edit the same code.
+- **Running it in production.** A management API to inspect, retry and recover running instances, and traces, metrics and an audit trail of task decisions in the Integration Control Plane.
+
+My part: I write the design proposals and build the core of the module. I also review the designs and pull requests across the module, the designer and the Control Plane with the teams that build them. Before each release I test it against real use cases, and those became the [demos and videos](/workflows/).
+
+<div class="tags"><span>Durable Execution</span> <span>Human Tasks</span> <span>Durable Agents</span> <span>Low-Code</span> <span>Ballerina</span> <span>WSO2 Integrator</span></div>
+</div>
+
+<div class="work current" data-scene="afm" markdown="1">
 
 ### Agent-Flavored Markdown (AFM) { #afm }
 
@@ -55,7 +70,7 @@ I started AFM in 2025 as a prototype. My colleague Maryam Ziyad Mohamed took it 
 <div class="tags"><span>AI Agents</span> <span>Specification</span> <span>Markdown</span> <span>Interoperability</span></div>
 </div>
 
-<div class="work" markdown="1">
+<div class="work" data-scene="integrator" markdown="1">
 
 ### WSO2 Integrator (formerly Ballerina Integrator) { #wso2-integrator }
 
@@ -71,18 +86,20 @@ I led the design and architecture of Ballerina Integrator, the successor to an e
 <div class="tags"><span>Ballerina</span> <span>Low-Code</span> <span>Integration</span> <span>WSO2 Integrator</span></div>
 </div>
 
-<div class="work current" markdown="1">
+<div class="work current" data-scene="compiler" markdown="1">
 
 ### Ballerina Language & Compiler { #ballerina-compiler }
 
 <span class="when">2016 – now</span>
 
-[ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) · [ballerina.io](https://ballerina.io) · [Language specification](https://ballerina.io/spec/lang/master) · [Talk: Programming Languages and Compilers](/blog/2025/wso2-tech-conf-compilers/)
+[ballerina-lang](https://github.com/ballerina-platform/ballerina-lang) · [ballerina.io](https://ballerina.io) · [Language specification](https://ballerina.io/spec/lang/master) · [Talk: Programming Languages and Compilers](/blog/2025/wso2-tech-conf-compilers/) · [Ballerina identifiers](/blog/2023/ballerina-identifiers/) · [The setup-ballerina GitHub Action](/blog/2023/setup-ballerina/)
 
 I joined the compiler and runtime team in the early days, when Ballerina was still experimenting with DSL-like syntax, and helped build the compiler that integration developers use today. I have contributed to the language specification from the start of the design process, through several iterations, feature changes, re-implementations and design verifications. I still work on the language and its tooling.
 
 <div class="tags"><span>Ballerina</span> <span>Compiler Design</span> <span>Language Specification</span> <span>Java</span></div>
 </div>
+
+<div data-scene="intro" markdown="1">
 
 ## Publications & Talks
 
@@ -91,7 +108,9 @@ I joined the compiler and runtime team in the early days, when Ballerina was sti
 - Programming Languages and Compilers. WSO2 Technology Conference 2025. [Video](/blog/2025/wso2-tech-conf-compilers/)
 - Introduction to Ballerina. CodeSeekers meetup, 2022. [Video](/blog/2022/meetup/)
 
-<details markdown="1">
+</div>
+
+<details data-scene="bpm" markdown="1">
 <summary>Earlier work, 2011 – 2016</summary>
 
 <div class="work" markdown="1">

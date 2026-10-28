@@ -38,6 +38,15 @@ def expand_icons(text):
     return re.sub(r"\{\{icon:([\w-]+)\}\}", lambda m: icon(m.group(1)), text)
 
 
+def scenes_html():
+    """Animated backgrounds from scenes/, one per data-scene value; CSS shows the one for the section in view."""
+    svgs = []
+    for path in sorted((ROOT / "scenes").glob("*.svg")):
+        svg = re.sub(r"<!--.*?-->", "", path.read_text(), flags=re.S).strip()
+        svgs.append(svg.replace("<svg", f'<svg class="scene" data-for="{path.stem}"', 1))
+    return '<div class="backdrop" aria-hidden="true">' + "".join(svgs) + "</div>"
+
+
 def split_front_matter(text):
     if text.startswith("---"):
         _, meta, body = text.split("---", 2)
@@ -216,6 +225,7 @@ def build():
             .replace("<!-- entries -->", blog_index(listed))
             .replace("<!-- social -->", social_html())
             .replace("<!-- demos -->", demo_cards(demos))
+            .replace("<!-- scenes -->", scenes_html())
         )
         write_page(meta["url"], meta["title"], render_markdown(body), meta["url"], meta.get("description"))
         urls.append(meta["url"])

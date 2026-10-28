@@ -1,0 +1,40 @@
+<!-- Durable workflow: start, a step, a wait for a person, an agent, a decision, two branches, end.
+     The token stops at the person and the ring turns while it waits. -->
+<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <g class="drift">
+    <path class="e" d="M114 520 H230 M350 520 H430 M510 520 H608 M672 520 H772 M800 492 V428 H900 M800 548 V612 H900 M1010 428 H1110 V506 M1010 612 H1110 V534"/>
+    <circle class="n" cx="100" cy="520" r="14"/>
+    <rect class="n" x="230" y="494" width="120" height="52" rx="12"/>
+    <path class="e" d="M262 514 H318 M262 528 H300"/>
+    <circle class="n" cx="470" cy="520" r="30"/>
+    <circle class="ring spin" cx="470" cy="520" r="40"/>
+    <circle class="e" cx="470" cy="511" r="7"/>
+    <path class="e" d="M456 536 Q470 516 484 536"/>
+    <polygon class="n breathe" points="672,520 656,547.7 624,547.7 608,520 624,492.3 656,492.3"/>
+    <circle class="dot blink" cx="630" cy="520" r="3"/>
+    <circle class="dot blink" cx="640" cy="520" r="3" style="animation-delay:.3s"/>
+    <circle class="dot blink" cx="650" cy="520" r="3" style="animation-delay:.6s"/>
+    <polygon class="n" points="800,492 828,520 800,548 772,520"/>
+    <rect class="n" x="900" y="404" width="110" height="48" rx="12"/>
+    <rect class="n" x="900" y="588" width="110" height="48" rx="12"/>
+    <circle class="n end" cx="1110" cy="520" r="14"/>
+    <path class="tok" pathLength="1000" d="M114 520 H230"/>
+    <path class="tok" pathLength="1000" d="M350 520 H430" style="animation-delay:2s"/>
+    <path class="tok" pathLength="1000" d="M510 520 H608" style="animation-delay:6s"/>
+    <path class="tok" pathLength="1000" d="M672 520 H772" style="animation-delay:8s"/>
+    <path class="tok" pathLength="1000" d="M800 492 V428 H900" style="animation-delay:10s"/>
+    <path class="tok" pathLength="1000" d="M1010 428 H1110 V506" style="animation-delay:12s"/>
+  </g>
+  <g class="drift alt">
+    <rect class="n" x="120" y="150" width="150" height="90" rx="12"/>
+    <rect class="n" x="140" y="170" width="150" height="90" rx="12"/>
+    <rect class="n breathe" x="160" y="190" width="150" height="90" rx="12"/>
+    <path class="e" d="M184 220 H260 M184 240 H230"/>
+    <path class="flow" d="M235 280 C260 340 330 380 350 494"/>
+  </g>
+  <g class="drift">
+    <path class="e spin" d="M1000 140 a40 40 0 1 1 -28 12"/>
+    <path class="e" d="M966 146 l6 6 l-10 4"/>
+    <path class="flow" d="M960 180 C880 260 860 360 865 404"/>
+  </g>
+</svg>

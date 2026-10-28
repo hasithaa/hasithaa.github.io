@@ -8,6 +8,7 @@ nav:
   - { title: Workflows, url: /workflows/ }
   - { title: Writing & Talks, url: /blog/ }
   - { title: Portfolio, url: /projects/ }
+  - { title: About, url: /about/ }
 social:
   - { name: GitHub, icon: github, url: "https://github.com/hasithaa" }
   - { name: LinkedIn, icon: linkedin, url: "https://www.linkedin.com/in/hasithaaravinda/" }

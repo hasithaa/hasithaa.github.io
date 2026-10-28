@@ -1,0 +1,32 @@
+<!-- AFM: a Markdown agent file (front matter, then instructions) feeding agents on different frameworks. -->
+<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <g class="drift">
+    <rect class="n" x="140" y="190" width="300" height="400" rx="16"/>
+    <text class="txt" x="170" y="236">---</text>
+    <path class="line type" pathLength="100" d="M170 264 H240 M252 264 H360"/>
+    <path class="line type" pathLength="100" d="M170 292 H230 M242 292 H330" style="animation-delay:.6s"/>
+    <path class="line type" pathLength="100" d="M170 320 H250 M262 320 H390" style="animation-delay:1.2s"/>
+    <text class="txt" x="170" y="360">---</text>
+    <text class="txt" x="170" y="408"># Role</text>
+    <path class="line type" pathLength="100" d="M170 436 H400" style="animation-delay:1.8s"/>
+    <path class="line type" pathLength="100" d="M170 462 H380" style="animation-delay:2.4s"/>
+    <text class="txt" x="170" y="506"># Instructions</text>
+    <path class="line type" pathLength="100" d="M170 534 H410" style="animation-delay:3s"/>
+    <path class="line type" pathLength="100" d="M170 560 H340" style="animation-delay:3.6s"/>
+  </g>
+  <g class="drift alt">
+    <path class="e" d="M440 390 C560 390 620 250 740 250 M440 390 H760 M440 390 C560 390 620 560 740 560"/>
+    <path class="flow" d="M800 250 L960 190 M800 250 L980 300 M824 390 L1000 400 M800 560 L960 520 M800 560 L990 640"/>
+    <circle class="n breathe" cx="770" cy="250" r="30"/>
+    <rect class="n breathe" x="762" y="360" width="60" height="60" rx="8" style="animation-delay:-1.3s"/>
+    <polygon class="n breathe" points="802,560 786,587.7 754,587.7 738,560 754,532.3 786,532.3" style="animation-delay:-2.6s"/>
+    <circle class="n" cx="970" cy="186" r="9"/>
+    <circle class="n" cx="990" cy="304" r="9"/>
+    <circle class="n" cx="1012" cy="400" r="9"/>
+    <circle class="n" cx="970" cy="518" r="9"/>
+    <circle class="n" cx="1000" cy="644" r="9"/>
+    <path class="tok" pathLength="1000" d="M440 390 C560 390 620 250 740 250" style="animation-delay:4s"/>
+    <path class="tok" pathLength="1000" d="M440 390 H760" style="animation-delay:5s"/>
+    <path class="tok" pathLength="1000" d="M440 390 C560 390 620 560 740 560" style="animation-delay:6s"/>
+  </g>
+</svg>
