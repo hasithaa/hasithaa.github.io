@@ -13,7 +13,6 @@ Personal site of Hasitha Aravinda. Plain static site: Markdown + YAML in, HTML o
 - `templates/base.html`, `static/style.css`, `static/site.js`: the one template, stylesheet and script.
 - `icons/*.svg`: inline icons ([Lucide](https://lucide.dev), ISC; X and Medium from [Simple Icons](https://simpleicons.org), CC0). Use `{{icon:<name>}}` in pages or the template; add new icons as files here.
 - `scenes/*.svg`: animated portfolio backgrounds, one per theme (`intro`, `workflow`, `afm`, `integrator`, `compiler`, `bpm`). `<!-- scenes -->` inlines them; a section with `data-scene="<name>"` shows its scene and tint while it is in view. Pure SVG + CSS animation (classes `n`, `e`, `flow`, `tok`, `breathe`, `drift`, `spin`, `blink`, `type`); the script only picks the scene. Scenes are drawn in 0..1200 x 0..800 and shown at 75% (the build widens the viewBox); keep the main drawing near the left and right edges, the middle sits behind the text. Other pages get one fixed scene with `scene: <name>` in front matter. Do not animate `color-mix(currentColor ...)` in keyframes: it crashes Chrome.
-- `art/pulse.svg`: the line drawing on Home, inlined by `<!-- pulse -->`.
 - `build.py`: renders everything into `site/` (git-ignored), plus `feed.xml` and `sitemap.xml`.
 
 `kind` is one of `post`, `talk`, `video`, `paper`.

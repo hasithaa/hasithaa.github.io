@@ -177,7 +177,7 @@ h3 { font-size: 1.05rem; margin: 1.6rem 0 0.2rem; }
 .thumb { flex: none; width: 128px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; }
 
 @media (max-width: 560px) {
-  .thumb, .pulse-labels { display: none; }
+  .thumb { display: none; }
   .site-header nav { gap: 14px; }
 }
 
@@ -397,18 +397,7 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
   @keyframes rise { from { opacity: 0.2; transform: translateY(28px); } }
 }
 
-/* Home: a line that beats and draws the things I work on, then stays; a dot keeps tracing it. */
-.pulse { display: block; width: 100%; height: auto; margin: 4px 0 0; color: var(--accent); }
-.pulse-line, .pulse-run { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
-.pulse-line { stroke-width: 2; stroke-opacity: 0.75; stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 4s ease-out forwards; }
-.pulse-run { stroke-width: 6; stroke-dasharray: 2 998; opacity: 0; animation: trace 9s linear 4s infinite; }
-.pulse-labels text { fill: var(--muted); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle;
-  opacity: 0; animation: appear 1s ease-out 2.5s forwards; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes trace { 0% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: -1000; opacity: 1; } }
-@keyframes appear { to { opacity: 1; } }
-
-/* Home: the social links sit on a wire the same signal flows through. */
+/* Home: the social links sit on a wire a signal runs along. */
 .wire { position: relative; isolation: isolate; }
 .wire::before, .wire::after { content: ""; position: absolute; top: 50%; z-index: -1; pointer-events: none; }
 .wire::before { left: 0; right: 0; height: 2px; margin-top: -1px; background: color-mix(in srgb, var(--accent) 35%, transparent); }
@@ -417,4 +406,4 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
 .wire .social { width: max-content; max-width: 100%; }
 @keyframes along { from { left: 0; } to { left: calc(100% - 8px); } }
 @media (max-width: 560px) { .wire::before, .wire::after { display: none; } }
-@media (prefers-reduced-motion: reduce) { .pulse-line { stroke-dashoffset: 0; } .pulse-labels text { opacity: 1; } .pulse-run, .wire::after { display: none; } }
+@media (prefers-reduced-motion: reduce) { .wire::after { display: none; } }

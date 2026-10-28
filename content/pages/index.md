@@ -8,8 +8,6 @@ scene: intro
 
 <p class="lede">Architect at WSO2. I build programming languages, durable workflows and AI agents.</p>
 
-<!-- pulse -->
-
 <div class="wire"><!-- social --></div>
 
 ## <span class="now-dot"></span>Now
