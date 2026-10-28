@@ -1,5 +1,6 @@
 """Builds the site from content/ into site/. Usage: python3 build.py"""
 
+import hashlib
 import html
 import re
 import shutil
@@ -64,6 +65,12 @@ def social_html():
     return '<div class="social">' + "".join(links) + "</div>"
 
 
+def asset_url(path):
+    """Versioned URL so browsers never pair new HTML with a cached old stylesheet or script."""
+    digest = hashlib.sha256((ROOT / "static" / path).read_bytes()).hexdigest()[:10]
+    return f"/{path}?v={digest}"
+
+
 def write_page(url, title, body, active="", description=None):
     page_title = SITE["name"] if url == "/" else f'{title} · {SITE["name"]}'
     page = (
@@ -76,6 +83,8 @@ def write_page(url, title, body, active="", description=None):
         .replace("{{social}}", social_html())
         .replace("{{year}}", str(date.today().year))
         .replace("{{content}}", body)
+        .replace("{{css}}", asset_url("style.css"))
+        .replace("{{js}}", asset_url("site.js"))
     )
     page = expand_icons(page)
     target = OUT / url.strip("/") / "index.html" if url.endswith("/") else OUT / url

@@ -11,7 +11,7 @@
   <script>
     try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="{{css}}">
   <script async src="https://www.googletagmanager.com/gtag/js?id={{analytics}}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -39,6 +39,6 @@
     {{social}}
     <p>© 2021–{{year}} {{name}} · <a href="/feed.xml">{{icon:rss}} RSS</a></p>
   </footer>
-  <script src="/site.js" defer></script>
+  <script src="{{js}}" defer></script>
 </body>
 </html>
