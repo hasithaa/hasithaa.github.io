@@ -1,1 +1,2 @@
-mkdocs-material>=9.5
+markdown==3.7
+pyyaml==6.0.2

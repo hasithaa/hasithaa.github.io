@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="canonical" href="{{url}}">
+  <link rel="icon" href="/img/favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="{{name}}" href="/feed.xml">
+  <link rel="stylesheet" href="/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{analytics}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{analytics}}');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-name" href="/">{{name}}</a>
+    <nav>{{nav}}</nav>
+  </header>
+  <main>
+{{content}}
+  </main>
+  <footer class="site-footer">
+    <p>{{social}}</p>
+    <p>© 2021–{{year}} {{name}} · <a href="/feed.xml">RSS</a></p>
+  </footer>
+  <script src="/site.js" defer></script>
+</body>
+</html>

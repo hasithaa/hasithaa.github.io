@@ -1,0 +1,25 @@
+# Writing and videos hosted elsewhere. Newest first by convention; the build sorts by date anyway.
+- title: "Agentic Claim Approval Workflow: An AI Agent That Follows the Policy"
+  date: 2026-10-21
+  kind: video
+  venue: Beyond Integrations (YouTube)
+  url: https://www.youtube.com/watch?v=XFb49Koodf8
+  summary: An expense-claim workflow where an AI agent applies the policy, asks a person when unsure, and gates the payment.
+- title: "Workflows That Wait for People: Durable Workflows & Human Tasks in WSO2 Integrator"
+  date: 2026-10-16
+  kind: video
+  venue: Beyond Integrations (YouTube)
+  url: https://youtu.be/_b84Ndbk1H8
+  summary: A durable claim-approval workflow that pauses for a manager's decision and survives restarts while it waits.
+- title: Workflows that wait for people
+  date: 2026-10-16
+  kind: post
+  venue: Medium
+  url: https://hasithaaravinda.medium.com/workflows-that-wait-for-people-8ac3b5fc3635
+  summary: Durable workflows for business processes that pause for a human decision, built with WSO2 Integrator.
+- title: "Agent-Flavored Markdown: Natural Language Specifications for Framework-Agnostic Agent Development"
+  date: 2026-03-23
+  kind: paper
+  venue: AgentCraft 2026 workshop, ACM IUI 2026 (CEUR-WS Vol-4266)
+  url: https://ceur-ws.org/Vol-4266/paper03.pdf
+  summary: Maryam Ziyad Mohamed, Hasitha Aravinda, Rania Khalaf. A Markdown-based format for defining portable AI agents.

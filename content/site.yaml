@@ -1,0 +1,15 @@
+name: Hasitha Aravinda
+url: https://hasithaa.github.io/
+description: Architect at WSO2. Programming languages, durable workflows and AI agents.
+analytics: G-Y0NC9SXE07
+latest_count: 4
+nav:
+  - { title: Home, url: / }
+  - { title: Writing & Talks, url: /blog/ }
+  - { title: Portfolio, url: /projects/ }
+social:
+  - { name: GitHub, url: "https://github.com/hasithaa" }
+  - { name: LinkedIn, url: "https://www.linkedin.com/in/hasithaaravinda/" }
+  - { name: Medium, url: "https://hasithaaravinda.medium.com/" }
+  - { name: YouTube, url: "https://www.youtube.com/@BeyondIntegrations" }
+  - { name: X, url: "https://x.com/HasithaAravinda" }
