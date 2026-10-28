@@ -397,12 +397,24 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
   @keyframes rise { from { opacity: 0.2; transform: translateY(28px); } }
 }
 
-/* Home: a line that beats and draws the things I work on, then fades and starts again. */
-.pulse { display: block; width: 100%; height: auto; margin: 4px 0 8px; color: var(--accent); }
-.pulse-line { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-  stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 12s ease-in-out infinite; }
+/* Home: a line that beats and draws the things I work on, then stays; a dot keeps tracing it. */
+.pulse { display: block; width: 100%; height: auto; margin: 4px 0 0; color: var(--accent); }
+.pulse-line, .pulse-run { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+.pulse-line { stroke-width: 2; stroke-opacity: 0.75; stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 4s ease-out forwards; }
+.pulse-run { stroke-width: 6; stroke-dasharray: 2 998; opacity: 0; animation: trace 9s linear 4s infinite; }
 .pulse-labels text { fill: var(--muted); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; text-anchor: middle;
-  opacity: 0; animation: labels 12s ease-in-out infinite; }
-@keyframes draw { 0% { stroke-dashoffset: 1000; opacity: 1; } 55%, 88% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
-@keyframes labels { 0%, 45% { opacity: 0; } 60%, 88% { opacity: 1; } 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .pulse-line { stroke-dashoffset: 0; } .pulse-labels text { opacity: 1; } }
+  opacity: 0; animation: appear 1s ease-out 2.5s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes trace { 0% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: -1000; opacity: 1; } }
+@keyframes appear { to { opacity: 1; } }
+
+/* Home: the social links sit on a wire the same signal flows through. */
+.wire { position: relative; isolation: isolate; }
+.wire::before, .wire::after { content: ""; position: absolute; top: 50%; z-index: -1; pointer-events: none; }
+.wire::before { left: 0; right: 0; height: 2px; margin-top: -1px; background: color-mix(in srgb, var(--accent) 35%, transparent); }
+.wire::after { left: 0; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 10px var(--accent); animation: along 6s linear infinite; }
+.wire .social { width: max-content; max-width: 100%; }
+@keyframes along { from { left: 0; } to { left: calc(100% - 8px); } }
+@media (max-width: 560px) { .wire::before, .wire::after { display: none; } }
+@media (prefers-reduced-motion: reduce) { .pulse-line { stroke-dashoffset: 0; } .pulse-labels text { opacity: 1; } .pulse-run, .wire::after { display: none; } }

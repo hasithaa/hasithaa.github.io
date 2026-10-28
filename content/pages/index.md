@@ -1,6 +1,7 @@
 ---
 title: Home
 url: /
+scene: intro
 ---
 
 # Hasitha Aravinda
@@ -9,7 +10,7 @@ url: /
 
 <!-- pulse -->
 
-<!-- social -->
+<div class="wire"><!-- social --></div>
 
 ## <span class="now-dot"></span>Now
 
