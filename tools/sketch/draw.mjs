@@ -22,51 +22,86 @@ function shape(make, color) {
   return { outline, fill, color };
 }
 
-const arrow = (x1, x2, y) =>
-  shape((o) => gen.path(`M${x1} ${y} Q${(x1 + x2) / 2} ${y - 7} ${x2} ${y} M${x2 - 10} ${y - 7} L${x2} ${y} L${x2 - 9} ${y + 7}`, o));
+const arrow = (x1, x2, y, both = false) =>
+  shape((o) => gen.path(
+    `M${x1} ${y} L${x2} ${y} M${x2 - 8} ${y - 6} L${x2} ${y} L${x2 - 8} ${y + 6}` + (both ? ` M${x1 + 8} ${y - 6} L${x1} ${y} L${x1 + 8} ${y + 6}` : ""),
+    o,
+  ));
 
-function render(name, width, height, items, labels) {
+// Each area is a link with its own sketch and label; --i orders the strokes across the whole picture.
+function render(name, width, height, label, areas) {
   let i = 0;
-  const groups = items.map((it) => {
-    const n = i++;
-    const out = `<g class="ink" style="--i:${n}">${it.outline.map((d) => `<path pathLength="1" d="${d}"/>`).join("")}</g>`;
-    const fill = it.fill.length
-      ? `<g class="wash ${it.color}" style="--i:${n + 0.6}">${it.fill.map((d) => `<path pathLength="1" d="${d}"/>`).join("")}</g>`
-      : "";
-    return fill + out;
+  const parts = areas.map((area) => {
+    const groups = area.items.map((it) => {
+      const n = i++;
+      const ink = `<g class="ink" style="--i:${n}">${it.outline.map((d) => `<path pathLength="1" d="${d}"/>`).join("")}</g>`;
+      const wash = it.fill.length
+        ? `<g class="wash ${it.color}" style="--i:${n + 0.6}">${it.fill.map((d) => `<path pathLength="1" d="${d}"/>`).join("")}</g>`
+        : "";
+      return wash + ink;
+    });
+    const text = area.labels.map(([t, x, y, size]) =>
+      `<text x="${x}" y="${y}" style="--i:${i}${size ? `;font-size:${size}px` : ""}">${t}</text>`);
+    i += 0.5;
+    return `<a href="${area.href}"><title>${area.title}</title>${groups.join("")}${text.join("")}</a>`;
   });
-  const text = labels.map(([t, x, y, n]) => `<text x="${x}" y="${y}" style="--i:${n}">${t}</text>`);
-  const svg = `<svg class="sketch" viewBox="0 0 ${width} ${height}" role="img" aria-label="An event starts a workflow; an agent checks, a decision, a person approves, done.">${groups.join("")}${text.join("")}</svg>\n`;
+  const svg = `<svg class="sketch" viewBox="0 0 ${width} ${height}" role="img" aria-label="${label}">${parts.join("")}</svg>\n`;
   writeFileSync(new URL(`../../art/${name}.svg`, import.meta.url), svg);
   console.log(`art/${name}.svg: ${svg.length} bytes`);
 }
 
-// Home: event → workflow → agent → decision → human → done.
-render("home", 730, 170, [
-  shape((o) => gen.rectangle(20, 50, 72, 50, o), "orange"),
-  shape((o) => gen.linearPath([[22, 53], [56, 78], [90, 53]], o)),
-  arrow(102, 150, 76),
-  shape((o) => gen.path("M172 44 H264 Q278 44 278 58 V94 Q278 108 264 108 H172 Q158 108 158 94 V58 Q158 44 172 44 Z", o), "teal"),
-  arrow(288, 332, 76),
-  shape((o) => gen.rectangle(342, 50, 58, 50, o), "violet"),
-  shape((o) => gen.path("M371 50 L371 38 M357 88 Q371 94 385 88", o)),
-  shape((o) => gen.circle(371, 32, 11, o)),
-  shape((o) => gen.circle(359, 70, 9, o)),
-  shape((o) => gen.circle(383, 70, 9, o)),
-  arrow(410, 448, 76),
-  shape((o) => gen.polygon([[486, 38], [524, 76], [486, 114], [448, 76]], o), "amber"),
-  arrow(532, 572, 76),
-  shape((o) => gen.circle(596, 50, 22, o), "blue"),
-  shape((o) => gen.path("M596 61 L596 96 M578 84 L596 74 L614 62 M582 122 L596 96 L610 122", o)),
-  arrow(626, 664, 76),
-  shape((o) => gen.circle(694, 76, 44, o), "green"),
-  shape((o) => gen.linearPath([[681, 77], [690, 88], [707, 64]], { ...o, strokeWidth: 2.4 })),
-], [
-  ["event", 56, 140, 1],
-  ["workflow", 218, 83, 3.5],
-  ["agent", 371, 140, 9],
-  ["?", 486, 85, 11.5],
-  ["decision", 486, 148, 11.5],
-  ["human", 596, 150, 14],
-  ["done", 694, 140, 17],
+// Home: the areas I work in, each linked to its portfolio entry.
+render("home", 730, 172, "Areas I work in: programming languages and compilers, integration, durable workflows and AI agents.", [
+  {
+    href: "/projects/#ballerina-compiler",
+    title: "Programming languages and compilers",
+    items: [
+      shape((o) => gen.path("M95 47 L62 63 M95 47 L128 63 M62 81 L45 97 M62 81 L79 97 M128 81 L128 97", o)),
+      shape((o) => gen.circle(95, 36, 22, o), "blue"),
+      shape((o) => gen.circle(62, 72, 18, o)),
+      shape((o) => gen.circle(128, 72, 18, o)),
+      shape((o) => gen.circle(45, 104, 14, o), "blue"),
+      shape((o) => gen.circle(79, 104, 14, o), "blue"),
+      shape((o) => gen.circle(128, 104, 14, o), "blue"),
+    ],
+    labels: [["languages", 95, 140], ["& compilers", 95, 162]],
+  },
+  {
+    href: "/projects/#wso2-integrator",
+    title: "Integration",
+    items: [
+      shape((o) => gen.rectangle(212, 50, 56, 44, o), "orange"),
+      arrow(274, 296, 72, true),
+      shape((o) => gen.path("M302 52 L302 92 Q324 104 346 92 L346 52 Q324 40 302 52 Z M302 52 Q324 64 346 52", o), "amber"),
+    ],
+    labels: [["API", 240, 77, 15], ["integration", 280, 140]],
+  },
+  {
+    href: "/projects/#durable-workflow",
+    title: "Durable workflows",
+    items: [
+      shape((o) => gen.circle(392, 72, 24, o), "orange"),
+      arrow(407, 424, 72),
+      shape((o) => gen.path("M434 54 H470 Q478 54 478 62 V82 Q478 90 470 90 H434 Q426 90 426 82 V62 Q426 54 434 54 Z", o), "teal"),
+      arrow(482, 497, 72),
+      shape((o) => gen.circle(512, 50, 18, o), "teal"),
+      shape((o) => gen.path("M512 59 L512 88 M500 72 L524 72 M503 104 L512 88 L521 104", o)),
+    ],
+    labels: [["durable", 455, 140], ["workflows", 455, 162]],
+  },
+  {
+    href: "/projects/#afm",
+    title: "AI agents (Agent-Flavored Markdown)",
+    items: [
+      shape((o) => gen.rectangle(578, 32, 46, 64, o)),
+      shape((o) => gen.path("M587 64 L615 64 M587 76 L609 76 M587 88 L613 88", o)),
+      arrow(630, 646, 66),
+      shape((o) => gen.rectangle(652, 46, 50, 42, o), "violet"),
+      shape((o) => gen.path("M677 46 L677 37 M666 78 Q677 84 688 78", o)),
+      shape((o) => gen.circle(677, 33, 9, o)),
+      shape((o) => gen.circle(668, 62, 8, o)),
+      shape((o) => gen.circle(686, 62, 8, o)),
+    ],
+    labels: [["#", 594, 53, 15], ["AI agents", 640, 140]],
+  },
 ]);

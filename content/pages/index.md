@@ -6,7 +6,7 @@ scene: intro
 
 # Hasitha Aravinda
 
-<p class="lede">Architect at WSO2. I build programming languages, durable workflows and AI agents.</p>
+<p class="lede">Architect at WSO2. I work on programming languages, integration, durable workflows and AI agents.</p>
 
 <!-- sketch -->
 
