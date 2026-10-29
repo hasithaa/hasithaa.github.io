@@ -18,6 +18,8 @@ description: Projects Hasitha Aravinda has led and built, from BPEL engines to B
 
 <div class="work current" data-scene="workflow" markdown="1">
 
+<div class="work-art"><!-- art:workflow --></div>
+
 ### Durable Workflow { #durable-workflow }
 
 <span id="ballerina-workflow"></span>
@@ -29,7 +31,7 @@ Long-running business processes in WSO2 Integrator, on durable execution with Te
 
 - **`ballerina/workflow`**: workflows are Ballerina functions. State is persisted, so a workflow can wait for events and people, retry steps and resume after a restart.
 - **Human tasks**: role-based assignment, a task inbox, and decisions recorded in the workflow history.
-- **Durable agents and durable agentic workflows**: AI agents run as workflow steps, keep their conversation state, ask people for input, and gate actions on approval.
+- **Durable agents**: AI agents on the same runtime; see [Durable Agents](#durable-agents).
 - **Low-code**: workflow, task and agent nodes, their forms, and a workflow overview in the WSO2 Integrator designer, all editing the same source.
 - **Operations**: the Workflow Management API to inspect, retry and recover instances; traces, metrics and a task-decision audit trail in the Integration Control Plane.
 
@@ -38,7 +40,30 @@ I designed the module API and its runtime model, implemented the core, and revie
 <div class="tags"><span>Durable Execution</span> <span>Human Tasks</span> <span>Durable Agents</span> <span>Low-Code</span> <span>Ballerina</span> <span>WSO2 Integrator</span></div>
 </div>
 
+<div class="work current" data-scene="agent" markdown="1">
+
+<div class="work-art"><!-- art:agent --></div>
+
+### Durable Agents { #durable-agents }
+
+<span class="when">2026 – now · Design lead · part of Durable Workflow</span>
+
+[Demo: an agent that follows the policy](/workflows/agentic-claim/) · [Video](https://youtu.be/XFb49Koodf8) · [Docs](https://wso2.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow)
+
+AI agents that run on the workflow runtime, so an agent's work is as durable as a workflow's.
+
+- **Durable runs**: the conversation and tool results are persisted; after a restart the agent resumes instead of starting over.
+- **Human in the loop**: the agent can ask a person and wait, as a human task, for as long as the answer takes.
+- **Approval gates**: actions with side effects wait for a person to approve them.
+- **Durable agentic workflows**: a workflow uses agents as steps, next to events, human tasks and other steps.
+- **Low-code**: agent nodes and forms in the WSO2 Integrator designer.
+
+<div class="tags"><span>AI Agents</span> <span>Durable Execution</span> <span>Human in the Loop</span> <span>Ballerina</span> <span>WSO2 Integrator</span></div>
+</div>
+
 <div class="work current" data-scene="afm" markdown="1">
+
+<div class="work-art"><!-- art:afm --></div>
 
 ### Agent-Flavored Markdown (AFM) { #afm }
 
@@ -72,6 +97,8 @@ I started AFM in 2025 as a prototype. My colleague Maryam Ziyad Mohamed took it 
 
 <div class="work" data-scene="integrator" markdown="1">
 
+<div class="work-art"><!-- art:integration --></div>
+
 ### WSO2 Integrator (formerly Ballerina Integrator) { #wso2-integrator }
 
 <span id="ballerina-integrator"></span>
@@ -87,6 +114,8 @@ I led the design and architecture of Ballerina Integrator, the successor to an e
 </div>
 
 <div class="work current" data-scene="compiler" markdown="1">
+
+<div class="work-art"><!-- art:compiler --></div>
 
 ### Ballerina Language & Compiler { #ballerina-compiler }
 

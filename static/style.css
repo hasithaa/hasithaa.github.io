@@ -297,6 +297,7 @@ figure img { width: 100%; height: auto; border-radius: 12px; border: 1px solid v
 [data-scene="intro"] { --tint-l: #3f51b5; --tint-d: #8c9eff; }
 [data-scene="workflow"] { --tint-l: #0f7f81; --tint-d: #4fd1c5; }
 [data-scene="afm"] { --tint-l: #7c3aed; --tint-d: #b794f6; }
+[data-scene="agent"] { --tint-l: #c2255c; --tint-d: #f783ac; }
 [data-scene="integrator"] { --tint-l: #c2410c; --tint-d: #ffa94d; }
 [data-scene="compiler"] { --tint-l: #1d6fb8; --tint-d: #74c0fc; }
 [data-scene="bpm"] { --tint-l: #a16207; --tint-d: #f2c94c; }
@@ -322,9 +323,9 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
 }
 .scene { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.4s ease; }
 .scene * { animation-play-state: paused; }
-[data-scene="intro"] [data-for="intro"], [data-scene="workflow"] [data-for="workflow"], [data-scene="afm"] [data-for="afm"],
+[data-scene="intro"] [data-for="intro"], [data-scene="workflow"] [data-for="workflow"], [data-scene="afm"] [data-for="afm"], [data-scene="agent"] [data-for="agent"],
 [data-scene="integrator"] [data-for="integrator"], [data-scene="compiler"] [data-for="compiler"], [data-scene="bpm"] [data-for="bpm"] { opacity: 1; }
-[data-scene="intro"] [data-for="intro"] *, [data-scene="workflow"] [data-for="workflow"] *, [data-scene="afm"] [data-for="afm"] *,
+[data-scene="intro"] [data-for="intro"] *, [data-scene="workflow"] [data-for="workflow"] *, [data-scene="afm"] [data-for="afm"] *, [data-scene="agent"] [data-for="agent"] *,
 [data-scene="integrator"] [data-for="integrator"] *, [data-scene="compiler"] [data-for="compiler"] *, [data-scene="bpm"] [data-for="bpm"] * { animation-play-state: running; }
 
 .scene .e, .scene .flow, .scene .line, .scene .ring, .scene .tok { fill: none; stroke: currentColor; stroke-linecap: round; }
@@ -412,7 +413,7 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
 @font-face { font-family: "Virgil"; src: url("/fonts/Virgil.woff2") format("woff2"); font-display: swap; }
 .sketch { display: block; width: 100%; height: auto; margin: 8px 0 4px; }
 .sketch path { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1;
-  animation: sketch 0.5s ease-out forwards; animation-delay: calc(var(--i) * 0.28s + 0.2s); }
+  animation: sketch 0.5s ease-out forwards; animation-delay: calc(var(--i) * 0.16s + 0.2s); }
 .sketch .ink path { stroke: var(--fg); stroke-opacity: 0.85; }
 .sketch .wash path { stroke-width: 1.2; stroke-opacity: 0.55; animation-duration: 0.35s; }
 .sketch .orange path { stroke: #e8590c; }
@@ -421,14 +422,22 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
 .sketch .amber path { stroke: #f08c00; }
 .sketch .blue path { stroke: #1971c2; }
 .sketch .green path { stroke: #2f9e44; }
+.sketch .pink path { stroke: #d6336c; }
 .sketch text { fill: var(--fg); font: 19px Virgil, "Comic Sans MS", cursive; text-anchor: middle; opacity: 0;
-  animation: appear 0.6s ease-out forwards; animation-delay: calc(var(--i) * 0.28s + 0.5s); }
+  animation: appear 0.6s ease-out forwards; animation-delay: calc(var(--i) * 0.16s + 0.4s); }
 .sketch a { cursor: pointer; }
 .sketch a > g, .sketch a > text { transition: transform 0.2s; }
 .sketch a:hover > g, .sketch a:hover > text { transform: translateY(-3px); }
 .sketch a:hover text { fill: var(--accent); }
 .sketch a:focus-visible { outline: 2px solid var(--accent); }
 @keyframes sketch { to { stroke-dashoffset: 0; } }
+
+/* Portfolio: each entry's sketch sits beside its text and draws in when it scrolls into view (site.js adds .go). */
+.work-art { float: right; width: 200px; margin: 0 0 8px 20px; }
+.work-art .sketch { margin: 0; }
+.sketch-side:not(.go) path, .sketch-side:not(.go) text { animation-play-state: paused; }
+@media (max-width: 640px) { .work-art { float: none; width: 180px; margin: 0 0 4px; } }
+@media (max-width: 560px) { .sketch-home text { font-size: 26px; } }
 @keyframes appear { to { opacity: 1; } }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sketch .wash path { stroke-opacity: 0.9; } }
 :root[data-theme="dark"] .sketch .wash path { stroke-opacity: 0.9; }

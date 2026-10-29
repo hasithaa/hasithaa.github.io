@@ -222,13 +222,14 @@ def build():
 
     for path in sorted((CONTENT / "pages").glob("*.md")):
         meta, body = split_front_matter(path.read_text())
+        body = re.sub(r"<!-- art:([\w-]+) -->", lambda m: (ROOT / "art" / f"{m.group(1)}.svg").read_text().strip(), body)
         body = (
             body.replace("<!-- latest -->", entry_list(listed[: SITE["latest_count"]]))
             .replace("<!-- entries -->", blog_index(listed))
             .replace("<!-- social -->", social_html())
             .replace("<!-- demos -->", demo_cards(demos))
             .replace("<!-- scenes -->", scenes_html())
-            .replace("<!-- sketch -->", (ROOT / "art" / "home.svg").read_text())
+
         )
         write_page(meta["url"], meta["title"], render_markdown(body), meta["url"], meta.get("description"), meta.get("scene"))
         urls.append(meta["url"])

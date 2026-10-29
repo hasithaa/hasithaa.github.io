@@ -28,80 +28,125 @@ const arrow = (x1, x2, y, both = false) =>
     o,
   ));
 
-// Each area is a link with its own sketch and label; --i orders the strokes across the whole picture.
-function render(name, width, height, label, areas) {
-  let i = 0;
-  const parts = areas.map((area) => {
-    const groups = area.items.map((it) => {
-      const n = i++;
-      const ink = `<g class="ink" style="--i:${n}">${it.outline.map((d) => `<path pathLength="1" d="${d}"/>`).join("")}</g>`;
-      const wash = it.fill.length
-        ? `<g class="wash ${it.color}" style="--i:${n + 0.6}">${it.fill.map((d) => `<path pathLength="1" d="${d}"/>`).join("")}</g>`
-        : "";
-      return wash + ink;
-    });
-    const text = area.labels.map(([t, x, y, size]) =>
-      `<text x="${x}" y="${y}" style="--i:${i}${size ? `;font-size:${size}px` : ""}">${t}</text>`);
-    i += 0.5;
-    return `<a href="${area.href}"><title>${area.title}</title>${groups.join("")}${text.join("")}</a>`;
+function strokesSvg(items, start) {
+  let i = start;
+  const out = items.map((it) => {
+    const n = i++;
+    const ink = `<g class="ink" style="--i:${n}">${it.outline.map((d) => `<path pathLength="1" d="${d}"/>`).join("")}</g>`;
+    const wash = it.fill.length
+      ? `<g class="wash ${it.color}" style="--i:${n + 0.6}">${it.fill.map((d) => `<path pathLength="1" d="${d}"/>`).join("")}</g>`
+      : "";
+    return wash + ink;
   });
-  const svg = `<svg class="sketch" viewBox="0 0 ${width} ${height}" role="img" aria-label="${label}">${parts.join("")}</svg>\n`;
-  writeFileSync(new URL(`../../art/${name}.svg`, import.meta.url), svg);
+  return { svg: out.join(""), next: i };
+}
+
+function write(name, svg) {
+  writeFileSync(new URL(`../../art/${name}.svg`, import.meta.url), svg + "\n");
   console.log(`art/${name}.svg: ${svg.length} bytes`);
 }
 
-// Home: the areas I work in, each linked to its portfolio entry.
-render("home", 730, 172, "Areas I work in: programming languages and compilers, integration, durable workflows and AI agents.", [
+// Each area is drawn in its own 180 x 120 box: one sketch per portfolio entry, and all of them in a row on Home.
+const W = 180;
+const areas = [
   {
+    id: "compiler",
     href: "/projects/#ballerina-compiler",
     title: "Programming languages and compilers",
-    items: [
-      shape((o) => gen.path("M95 47 L62 63 M95 47 L128 63 M62 81 L45 97 M62 81 L79 97 M128 81 L128 97", o)),
-      shape((o) => gen.circle(95, 36, 22, o), "blue"),
-      shape((o) => gen.circle(62, 72, 18, o)),
-      shape((o) => gen.circle(128, 72, 18, o)),
-      shape((o) => gen.circle(45, 104, 14, o), "blue"),
-      shape((o) => gen.circle(79, 104, 14, o), "blue"),
-      shape((o) => gen.circle(128, 104, 14, o), "blue"),
+    labels: ["languages", "& compilers"],
+    items: () => [
+      shape((o) => gen.path("M90 47 L57 63 M90 47 L123 63 M57 81 L40 97 M57 81 L74 97 M123 81 L123 97", o)),
+      shape((o) => gen.circle(90, 36, 22, o), "blue"),
+      shape((o) => gen.circle(57, 72, 18, o)),
+      shape((o) => gen.circle(123, 72, 18, o)),
+      shape((o) => gen.circle(40, 104, 14, o), "blue"),
+      shape((o) => gen.circle(74, 104, 14, o), "blue"),
+      shape((o) => gen.circle(123, 104, 14, o), "blue"),
     ],
-    labels: [["languages", 95, 140], ["& compilers", 95, 162]],
   },
   {
+    id: "integration",
     href: "/projects/#wso2-integrator",
     title: "Integration",
-    items: [
-      shape((o) => gen.rectangle(212, 50, 56, 44, o), "orange"),
-      arrow(274, 296, 72, true),
-      shape((o) => gen.path("M302 52 L302 92 Q324 104 346 92 L346 52 Q324 40 302 52 Z M302 52 Q324 64 346 52", o), "amber"),
+    labels: ["integration"],
+    text: [["API", 50, 77, 15]],
+    items: () => [
+      shape((o) => gen.rectangle(22, 50, 56, 44, o), "orange"),
+      arrow(84, 106, 72, true),
+      shape((o) => gen.path("M112 52 L112 92 Q134 104 156 92 L156 52 Q134 40 112 52 Z M112 52 Q134 64 156 52", o), "amber"),
     ],
-    labels: [["API", 240, 77, 15], ["integration", 280, 140]],
   },
   {
+    id: "workflow",
     href: "/projects/#durable-workflow",
     title: "Durable workflows",
-    items: [
-      shape((o) => gen.circle(392, 72, 24, o), "orange"),
-      arrow(407, 424, 72),
-      shape((o) => gen.path("M434 54 H470 Q478 54 478 62 V82 Q478 90 470 90 H434 Q426 90 426 82 V62 Q426 54 434 54 Z", o), "teal"),
-      arrow(482, 497, 72),
-      shape((o) => gen.circle(512, 50, 18, o), "teal"),
-      shape((o) => gen.path("M512 59 L512 88 M500 72 L524 72 M503 104 L512 88 L521 104", o)),
+    labels: ["durable", "workflows"],
+    items: () => [
+      shape((o) => gen.circle(27, 72, 24, o), "orange"),
+      arrow(42, 59, 72),
+      shape((o) => gen.path("M69 54 H105 Q113 54 113 62 V82 Q113 90 105 90 H69 Q61 90 61 82 V62 Q61 54 69 54 Z", o), "teal"),
+      arrow(117, 132, 72),
+      shape((o) => gen.circle(147, 50, 18, o), "teal"),
+      shape((o) => gen.path("M147 59 L147 88 M135 72 L159 72 M138 104 L147 88 L156 104", o)),
     ],
-    labels: [["durable", 455, 140], ["workflows", 455, 162]],
   },
   {
-    href: "/projects/#afm",
-    title: "AI agents (Agent-Flavored Markdown)",
-    items: [
-      shape((o) => gen.rectangle(578, 32, 46, 64, o)),
-      shape((o) => gen.path("M587 64 L615 64 M587 76 L609 76 M587 88 L613 88", o)),
-      arrow(630, 646, 66),
-      shape((o) => gen.rectangle(652, 46, 50, 42, o), "violet"),
-      shape((o) => gen.path("M677 46 L677 37 M666 78 Q677 84 688 78", o)),
-      shape((o) => gen.circle(677, 33, 9, o)),
-      shape((o) => gen.circle(668, 62, 8, o)),
-      shape((o) => gen.circle(686, 62, 8, o)),
+    id: "agent",
+    href: "/projects/#durable-agents",
+    title: "Durable agents",
+    labels: ["durable", "agents"],
+    items: () => [
+      shape((o) => gen.rectangle(60, 48, 46, 38, o), "pink"),
+      shape((o) => gen.path("M83 48 L83 39 M73 76 Q83 82 93 76", o)),
+      shape((o) => gen.circle(83, 35, 9, o)),
+      shape((o) => gen.circle(75, 62, 7, o)),
+      shape((o) => gen.circle(91, 62, 7, o)),
+      shape((o) => gen.path("M43 72 A40 40 0 1 1 64 103 M64 103 L56 95 M64 103 L53 106", o)),
+      shape((o) => gen.circle(155, 46, 16, o), "pink"),
+      shape((o) => gen.path("M155 54 L155 80 M145 66 L165 66 M148 96 L155 80 L162 96", o)),
+      shape((o) => gen.path("M128 6 H170 Q176 6 176 12 V18 Q176 24 170 24 H142 L135 31 L136 24 H128 Q122 24 122 18 V12 Q122 6 128 6 Z", o)),
     ],
-    labels: [["#", 594, 53, 15], ["AI agents", 640, 140]],
+    text: [["?", 149, 21, 15]],
   },
-]);
+  {
+    id: "afm",
+    href: "/projects/#afm",
+    title: "Agent-Flavored Markdown",
+    labels: ["agents in", "Markdown"],
+    text: [["#", 44, 53, 15]],
+    items: () => [
+      shape((o) => gen.rectangle(28, 32, 46, 64, o)),
+      shape((o) => gen.path("M37 64 L65 64 M37 76 L59 76 M37 88 L63 88", o)),
+      arrow(80, 96, 66),
+      shape((o) => gen.rectangle(102, 46, 50, 42, o), "violet"),
+      shape((o) => gen.path("M127 46 L127 37 M116 78 Q127 84 138 78", o)),
+      shape((o) => gen.circle(127, 33, 9, o)),
+      shape((o) => gen.circle(118, 62, 8, o)),
+      shape((o) => gen.circle(136, 62, 8, o)),
+    ],
+  },
+];
+for (const a of areas) a.drawn = a.items();
+
+const textSvg = (t, x, y, n, size) => `<text x="${x}" y="${y}" style="--i:${n}${size ? `;font-size:${size}px` : ""}">${t}</text>`;
+
+// Home: all areas in a row, each a link to its portfolio entry.
+{
+  let i = 0;
+  const parts = areas.map((a, k) => {
+    const { svg, next } = strokesSvg(a.drawn, i);
+    i = next;
+    const inner = (a.text || []).map(([t, x, y, size]) => textSvg(t, x, y, i, size)).join("");
+    const labels = a.labels.map((t, j) => textSvg(t, 90, 142 + j * 22, i)).join("");
+    i += 0.5;
+    return `<a href="${a.href}" transform="translate(${k * W} 0)"><title>${a.title}</title>${svg}${inner}${labels}</a>`;
+  });
+  write("home", `<svg class="sketch sketch-home" viewBox="0 0 ${W * areas.length} 172" role="img" aria-label="Areas I work in: ${areas.map((a) => a.title).join(", ")}.">${parts.join("")}</svg>`);
+}
+
+// Portfolio: one sketch per entry, without labels.
+for (const a of areas) {
+  const { svg, next } = strokesSvg(a.drawn, 0);
+  const inner = (a.text || []).map(([t, x, y, size]) => textSvg(t, x, y, next, size)).join("");
+  write(a.id, `<svg class="sketch sketch-side" viewBox="0 0 ${W} 120" aria-hidden="true">${svg}${inner}</svg>`);
+}

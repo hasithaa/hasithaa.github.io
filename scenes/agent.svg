@@ -1,0 +1,49 @@
+<!-- Durable agents. Right: the agent calls tools, its state is saved after each step, and the ring turns
+     as it resumes. Left: it asks a person in chat and waits for an approval. The middle sits behind the text. -->
+<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <g class="drift">
+    <path class="flow" d="M1190 300 L1070 190 M1190 300 L1320 190 M1190 300 L1320 420 M1190 300 L1070 420"/>
+    <circle class="n" cx="1070" cy="190" r="16"/>
+    <circle class="n" cx="1320" cy="190" r="16"/>
+    <circle class="n" cx="1320" cy="420" r="16"/>
+    <circle class="n" cx="1070" cy="420" r="16"/>
+    <circle class="ring spin" cx="1190" cy="300" r="66"/>
+    <polygon class="n breathe" points="1236,300 1213,340 1167,340 1144,300 1167,260 1213,260"/>
+    <circle class="dot blink" cx="1176" cy="300" r="4"/>
+    <circle class="dot blink" cx="1190" cy="300" r="4" style="animation-delay:.3s"/>
+    <circle class="dot blink" cx="1204" cy="300" r="4" style="animation-delay:.6s"/>
+    <path class="tok" pathLength="1000" d="M1190 300 L1070 190"/>
+    <path class="tok" pathLength="1000" d="M1190 300 L1320 190" style="animation-delay:3.5s"/>
+    <path class="tok" pathLength="1000" d="M1190 300 L1320 420" style="animation-delay:7s"/>
+    <path class="tok" pathLength="1000" d="M1190 300 L1070 420" style="animation-delay:10.5s"/>
+    <path class="e" d="M1190 366 V520"/>
+    <path class="n" d="M1140 530 V610 Q1190 634 1240 610 V530 Q1190 506 1140 530 Z"/>
+    <path class="e" d="M1140 530 Q1190 554 1240 530 M1140 570 Q1190 594 1240 570"/>
+    <path class="tok" pathLength="1000" d="M1190 366 V520" style="animation-delay:2s"/>
+    <path class="tok" pathLength="1000" d="M1190 366 V520" style="animation-delay:9s"/>
+  </g>
+
+  <g class="drift alt">
+    <rect class="n" x="-170" y="180" width="250" height="470" rx="18"/>
+    <circle class="e" cx="-130" cy="222" r="12"/>
+    <path class="e" d="M-150 252 Q-130 230 -110 252 M-90 218 H20"/>
+    <path class="e" d="M-170 270 H80"/>
+    <g class="say">
+      <rect class="n" x="-150" y="290" width="170" height="44" rx="14"/>
+      <path class="e" d="M-130 312 H-10"/>
+    </g>
+    <g class="say" style="animation-delay:1.5s">
+      <rect class="n" x="-100" y="350" width="160" height="44" rx="14"/>
+      <path class="e" d="M-80 372 H30"/>
+    </g>
+    <g class="say" style="animation-delay:3s">
+      <rect class="n" x="-150" y="410" width="190" height="44" rx="14"/>
+      <path class="e" d="M-130 432 H10"/>
+    </g>
+    <rect class="n" x="-150" y="560" width="210" height="60" rx="12"/>
+    <path class="e" d="M-130 584 H-20"/>
+    <rect class="n" x="-10" y="576" width="56" height="26" rx="13"/>
+    <path class="check" pathLength="100" d="M8 589 l6 6 l12 -12"/>
+    <path class="flow" d="M80 360 C400 360 800 320 1144 300"/>
+  </g>
+</svg>

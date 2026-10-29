@@ -49,6 +49,15 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
   });
 });
 
+// Portfolio sketches draw in once they scroll into view.
+const sketches = document.querySelectorAll(".sketch-side");
+if ("IntersectionObserver" in window) {
+  const seen = new IntersectionObserver((list) => list.forEach((s) => {
+    if (s.isIntersecting) { s.target.classList.add("go"); seen.unobserve(s.target); }
+  }), { threshold: 0.4 });
+  sketches.forEach((s) => seen.observe(s));
+} else sketches.forEach((s) => s.classList.add("go"));
+
 // Portfolio backdrop: the last section whose top has passed the middle of the screen picks the scene; CSS does the rest.
 const sections = [...document.querySelectorAll("main [data-scene]")];
 if (sections.length) {
