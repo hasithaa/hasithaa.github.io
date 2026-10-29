@@ -228,6 +228,7 @@ def build():
             .replace("<!-- social -->", social_html())
             .replace("<!-- demos -->", demo_cards(demos))
             .replace("<!-- scenes -->", scenes_html())
+            .replace("<!-- sketch -->", (ROOT / "art" / "home.svg").read_text())
         )
         write_page(meta["url"], meta["title"], render_markdown(body), meta["url"], meta.get("description"), meta.get("scene"))
         urls.append(meta["url"])

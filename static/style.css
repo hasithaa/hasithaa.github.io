@@ -407,3 +407,24 @@ body[data-scene] { transition: --tint 1.2s ease, background-color 0.2s, color 0.
 @keyframes along { from { left: 0; } to { left: calc(100% - 8px); } }
 @media (max-width: 560px) { .wire::before, .wire::after { display: none; } }
 @media (prefers-reduced-motion: reduce) { .wire::after { display: none; } }
+
+/* Hand-drawn diagrams from tools/sketch (rough.js, Virgil font): each stroke draws in once, in --i order, then stays. */
+@font-face { font-family: "Virgil"; src: url("/fonts/Virgil.woff2") format("woff2"); font-display: swap; }
+.sketch { display: block; width: 100%; height: auto; margin: 8px 0 4px; }
+.sketch path { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: sketch 0.5s ease-out forwards; animation-delay: calc(var(--i) * 0.28s + 0.2s); }
+.sketch .ink path { stroke: var(--fg); stroke-opacity: 0.85; }
+.sketch .wash path { stroke-width: 1.2; stroke-opacity: 0.55; animation-duration: 0.35s; }
+.sketch .orange path { stroke: #e8590c; }
+.sketch .teal path { stroke: #0c8599; }
+.sketch .violet path { stroke: #7048e8; }
+.sketch .amber path { stroke: #f08c00; }
+.sketch .blue path { stroke: #1971c2; }
+.sketch .green path { stroke: #2f9e44; }
+.sketch text { fill: var(--fg); font: 19px Virgil, "Comic Sans MS", cursive; text-anchor: middle; opacity: 0;
+  animation: appear 0.6s ease-out forwards; animation-delay: calc(var(--i) * 0.28s + 0.5s); }
+@keyframes sketch { to { stroke-dashoffset: 0; } }
+@keyframes appear { to { opacity: 1; } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .sketch .wash path { stroke-opacity: 0.9; } }
+:root[data-theme="dark"] .sketch .wash path { stroke-opacity: 0.9; }
+@media (prefers-reduced-motion: reduce) { .sketch path { stroke-dashoffset: 0; } .sketch text { opacity: 1; } }

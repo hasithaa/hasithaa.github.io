@@ -1,0 +1,8 @@
+{
+  "name": "sketch",
+  "private": true,
+  "type": "module",
+  "description": "Generates the hand-drawn SVGs in art/ with rough.js. Run once after a change; the output is committed.",
+  "scripts": { "build": "node draw.mjs" },
+  "dependencies": { "roughjs": "4.6.6" }
+}
