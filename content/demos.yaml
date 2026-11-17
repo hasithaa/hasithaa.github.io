@@ -14,7 +14,7 @@
     to decide. Nothing polls, nothing is lost on a restart, and the apps around it hold no process logic.
   figures:
     - { src: /img/demos/claim-approval-use-case.jpg, alt: "Ann files claims, Jane approves them: submit, attach the bill, a manager decides, recorded" }
-    - { src: /img/demos/claim-approval-architecture.jpg, alt: "The app, the integration built in WSO2 Integrator, and the platform" }
+    - { src: /img/demos/claim-approval-architecture.jpg, alt: "The app, the integration built in Choreo Integrator, and the platform" }
   run: |
     You need Docker with Compose and about 6 GB of memory for Docker.
 
@@ -46,7 +46,7 @@
     - { src: /img/demos/agentic-claim-use-case.jpg, alt: "Ann filed, uploaded and answered; the agent read the bill, did the sums and asked; Jane approved; Ivy released the money" }
   run: |
     You need Docker with Compose (about 6 GB of memory for Docker) and a WSO2 model provider token for the agent:
-    in WSO2 Integrator, run **Configure default WSO2 Model Provider**, then copy the token into `config/model.toml`
+    in Choreo Integrator, run **Configure default WSO2 Model Provider**, then copy the token into `config/model.toml`
     as the README describes.
 
     ```sh

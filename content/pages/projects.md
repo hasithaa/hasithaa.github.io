@@ -1,7 +1,7 @@
 ---
 title: Portfolio
 url: /projects/
-description: Projects Hasitha Aravinda has led and built, from BPEL engines to Ballerina, WSO2 Integrator, durable workflows and AFM.
+description: Projects Hasitha Aravinda has led and built, from BPEL engines to Ballerina, Choreo Integrator, durable workflows and AFM.
 ---
 
 <!-- scenes -->
@@ -10,9 +10,11 @@ description: Projects Hasitha Aravinda has led and built, from BPEL engines to B
 
 # Portfolio
 
-<p class="lede">Architect, Integration at <a href="https://wso2.com">WSO2</a> · Compiler developer, <a href="https://github.com/ballerina-platform/">Ballerina</a> · 2013 – now</p>
+<p class="lede">Architect, Integration at <a href="https://choreolabs.com">Choreo Labs</a>* · Compiler developer, <a href="https://github.com/ballerina-platform/">Ballerina</a> · 2013 – now</p>
 
-<div class="tags"><span>Ballerina</span> <span>Compiler Design</span> <span>Durable Workflows</span> <span>AI Agents</span> <span>Developer Experience</span> <span>Low-Code Editors</span> <span>WSO2 Integrator</span> <span>Integration</span> <span>Java</span> <span>BPMN</span> <span>WS-BPEL</span></div>
+<small>* Formerly WSO2 LLC. Choreo Integrator was formerly WSO2 Integrator. Events and older products, such as the Business Process Server, keep the WSO2 name.</small>
+
+<div class="tags"><span>Ballerina</span> <span>Compiler Design</span> <span>Durable Workflows</span> <span>AI Agents</span> <span>Developer Experience</span> <span>Low-Code Editors</span> <span>Choreo Integrator</span> <span>Integration</span> <span>Java</span> <span>BPMN</span> <span>WS-BPEL</span></div>
 
 </div>
 
@@ -25,19 +27,19 @@ description: Projects Hasitha Aravinda has led and built, from BPEL engines to B
 <span id="ballerina-workflow"></span>
 <span class="when">2026 – now · Design lead</span>
 
-[Demos](/workflows/) · [Docs](https://wso2.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow) · [Workflows that wait for people (Medium)](https://hasithaaravinda.medium.com/workflows-that-wait-for-people-8ac3b5fc3635) · [Video: human tasks](https://youtu.be/_b84Ndbk1H8) · [Video: an agent that follows the policy](https://youtu.be/XFb49Koodf8) · [module-ballerina-workflow](https://github.com/ballerina-platform/module-ballerina-workflow)
+[Demos](/workflows/) · [Docs](https://choreolabs.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow) · [Workflows that wait for people (Medium)](https://hasithaaravinda.medium.com/workflows-that-wait-for-people-8ac3b5fc3635) · [Video: human tasks](https://youtu.be/_b84Ndbk1H8) · [Video: an agent that follows the policy](https://youtu.be/XFb49Koodf8) · [module-ballerina-workflow](https://github.com/ballerina-platform/module-ballerina-workflow)
 
-Long-running business processes in WSO2 Integrator, on durable execution with Temporal.
+Long-running business processes in Choreo Integrator, on durable execution with Temporal.
 
 - **`ballerina/workflow`**: workflows are Ballerina functions. State is persisted, so a workflow can wait for events and people, retry steps and resume after a restart.
 - **Human tasks**: role-based assignment, a task inbox, and decisions recorded in the workflow history.
 - **Durable agents**: AI agents on the same runtime; see [Durable Agents](#durable-agents).
-- **Low-code**: workflow, task and agent nodes, their forms, and a workflow overview in the WSO2 Integrator designer, all editing the same source.
+- **Low-code**: workflow, task and agent nodes, their forms, and a workflow overview in the Choreo Integrator designer, all editing the same source.
 - **Operations**: the Workflow Management API to inspect, retry and recover instances; traces, metrics and a task-decision audit trail in the Integration Control Plane.
 
 I designed the module API and its runtime model, implemented the core, and review the designer and Control Plane designs.
 
-<div class="tags"><span>Durable Execution</span> <span>Human Tasks</span> <span>Durable Agents</span> <span>Low-Code</span> <span>Ballerina</span> <span>WSO2 Integrator</span></div>
+<div class="tags"><span>Durable Execution</span> <span>Human Tasks</span> <span>Durable Agents</span> <span>Low-Code</span> <span>Ballerina</span> <span>Choreo Integrator</span></div>
 </div>
 
 <div class="work current" data-scene="agent" markdown="1">
@@ -48,7 +50,7 @@ I designed the module API and its runtime model, implemented the core, and revie
 
 <span class="when">2026 – now · Design lead · part of Durable Workflow</span>
 
-[Demo: an agent that follows the policy](/workflows/agentic-claim/) · [Video](https://youtu.be/XFb49Koodf8) · [Docs](https://wso2.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow)
+[Demo: an agent that follows the policy](/workflows/agentic-claim/) · [Video](https://youtu.be/XFb49Koodf8) · [Docs](https://choreolabs.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow)
 
 AI agents that run on the workflow runtime, so an agent's work is as durable as a workflow's.
 
@@ -56,9 +58,9 @@ AI agents that run on the workflow runtime, so an agent's work is as durable as 
 - **Human in the loop**: the agent can ask a person and wait, as a human task, for as long as the answer takes.
 - **Approval gates**: actions with side effects wait for a person to approve them.
 - **Durable agentic workflows**: a workflow uses agents as steps, next to events, human tasks and other steps.
-- **Low-code**: agent nodes and forms in the WSO2 Integrator designer.
+- **Low-code**: agent nodes and forms in the Choreo Integrator designer.
 
-<div class="tags"><span>AI Agents</span> <span>Durable Execution</span> <span>Human in the Loop</span> <span>Ballerina</span> <span>WSO2 Integrator</span></div>
+<div class="tags"><span>AI Agents</span> <span>Durable Execution</span> <span>Human in the Loop</span> <span>Ballerina</span> <span>Choreo Integrator</span></div>
 </div>
 
 <div class="work current" data-scene="afm" markdown="1">
@@ -73,7 +75,7 @@ AI agents that run on the workflow runtime, so an agent's work is as durable as 
 
 AFM is an open specification for defining AI agents in Markdown. YAML front matter holds the configuration: model, tools, interfaces and limits. The Markdown body holds the agent's role and instructions in natural language. Keeping the two apart makes an agent readable by domain experts and portable across frameworks.
 
-I started AFM in 2025 as a prototype. My colleague Maryam Ziyad Mohamed took it forward, and it is now developed at WSO2 with a reference implementation. We described it in a paper at the AgentCraft workshop at ACM IUI 2026:
+I started AFM in 2025 as a prototype. My colleague Maryam Ziyad Mohamed took it forward, and it is now developed at Choreo Labs with a reference implementation. We described it in a paper at the AgentCraft workshop at ACM IUI 2026:
 
 > Maryam Ziyad Mohamed, Hasitha Aravinda, Rania Khalaf. *Agent-Flavored Markdown: Natural Language Specifications for Framework-Agnostic Agent Development.* AgentCraft 2026: Workshop on Agentic AI Systems Development, ACM IUI 2026, Paphos, Cyprus. CEUR-WS Vol-4266.
 
@@ -99,18 +101,18 @@ I started AFM in 2025 as a prototype. My colleague Maryam Ziyad Mohamed took it 
 
 <div class="work-art"><!-- art:integration --></div>
 
-### WSO2 Integrator (formerly Ballerina Integrator) { #wso2-integrator }
+### Choreo Integrator (formerly WSO2 Integrator and Ballerina Integrator) { #wso2-integrator }
 
 <span id="ballerina-integrator"></span>
 <span class="when">2024 Q3 – 2025 Q3 · Design and architecture lead</span>
 
-[WSO2 Integrator](https://wso2.com/integrator/) · [Talk at WSO2Con Barcelona 2025](/blog/2025/wso2con-ballerina-integrator/)
+[Choreo Integrator](https://choreolabs.com/integrator/) · [Talk at WSO2Con Barcelona 2025](/blog/2025/wso2con-ballerina-integrator/)
 
 A developer tool for building integrations, including APIs, file processing, event-driven flows and automation. It gives one experience for low-code and pro-code work, with visual views of the architecture, message flow, control flow, data mapping and entity relationships. It builds on open standards such as OpenAPI, GraphQL, gRPC and WebSocket, and on the open-source Ballerina language.
 
-I led the design and architecture of Ballerina Integrator, the successor to an earlier low-code tool for Ballerina. It grew out of my proof of concept [Ballerina-Diagram-Gen](https://github.com/hasithaa/Ballerina-Diagram-Gen), which introduced flow-based diagrams for Ballerina. I designed and built the core of the new platform. It was renamed WSO2 Integrator : BI in 2025 and WSO2 Integrator in 2026.
+I led the design and architecture of Ballerina Integrator, the successor to an earlier low-code tool for Ballerina. It grew out of my proof of concept [Ballerina-Diagram-Gen](https://github.com/hasithaa/Ballerina-Diagram-Gen), which introduced flow-based diagrams for Ballerina. I designed and built the core of the new platform. It was renamed Choreo Integrator : BI in 2025 and Choreo Integrator in 2026.
 
-<div class="tags"><span>Ballerina</span> <span>Low-Code</span> <span>Integration</span> <span>WSO2 Integrator</span></div>
+<div class="tags"><span>Ballerina</span> <span>Low-Code</span> <span>Integration</span> <span>Choreo Integrator</span></div>
 </div>
 
 <div class="work current" data-scene="compiler" markdown="1">

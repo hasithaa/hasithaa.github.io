@@ -16,7 +16,7 @@
   kind: post
   venue: Medium
   url: https://hasithaaravinda.medium.com/workflows-that-wait-for-people-8ac3b5fc3635
-  summary: Durable workflows for business processes that pause for a human decision, built with WSO2 Integrator.
+  summary: Durable workflows for business processes that pause for a human decision, built with Choreo Integrator.
 - title: "Agent-Flavored Markdown: Natural Language Specifications for Framework-Agnostic Agent Development"
   date: 2026-03-23
   kind: paper

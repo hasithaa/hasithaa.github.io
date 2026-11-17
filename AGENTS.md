@@ -38,6 +38,6 @@ Pushing to `v2` deploys to the `gh-pages` branch through `.github/workflows/depl
 - Do not list the `fun-with-math` channel.
 - Home keeps one short "Now" statement; background (career history, education) lives on About.
 - Keep motion slow and quiet; `prefers-reduced-motion` turns it off.
-- Workflows: point learners to the WSO2 Integrator docs; the demo pages show and run, they do not teach the API.
+- Workflows: point learners to the Choreo Integrator docs; the demo pages show and run, they do not teach the API.
 - Guides are hidden for now; the Ballerina reference guide lives at https://hasithaa.github.io/ballerina-reference-guide/ and is not linked from the site.
 - Run `python3 build.py` before committing; it must finish without errors.

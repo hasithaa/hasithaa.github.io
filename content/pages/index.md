@@ -6,7 +6,7 @@ scene: intro
 
 # Hasitha Aravinda
 
-<p class="lede">Architect at WSO2. I work on programming languages, integration, durable workflows and AI agents.</p>
+<p class="lede">Architect at Choreo Labs. I work on programming languages, integration, durable workflows and AI agents.</p>
 
 <!-- art:home -->
 
@@ -14,7 +14,7 @@ scene: intro
 
 ## <span class="now-dot"></span>Now
 
-I lead the design of [Durable Workflow](/projects/#durable-workflow) and [Durable Agents](/projects/#durable-agents) in WSO2 Integrator: long-running processes and AI agents that wait for people and events, and keep going after restarts. Want to try it? Start with the [demos](/workflows/).
+I lead the design of [Durable Workflow](/projects/#durable-workflow) and [Durable Agents](/projects/#durable-agents) in Choreo Integrator: long-running processes and AI agents that wait for people and events, and keep going after restarts. Want to try it? Start with the [demos](/workflows/).
 
 [More about me →](/about/)
 
@@ -27,10 +27,10 @@ I lead the design of [Durable Workflow](/projects/#durable-workflow) and [Durabl
 ## Selected work
 
 <div class="cards">
-<a class="card" href="/projects/#durable-workflow"><strong>Durable Workflow</strong><span>2026 – now · Durable workflows, human tasks, durable agents and the low-code designer in WSO2 Integrator.</span></a>
+<a class="card" href="/projects/#durable-workflow"><strong>Durable Workflow</strong><span>2026 – now · Durable workflows, human tasks, durable agents and the low-code designer in Choreo Integrator.</span></a>
 <a class="card" href="/projects/#durable-agents"><strong>Durable Agents</strong><span>2026 – now · AI agents on the workflow runtime: durable runs, human in the loop, approval gates.</span></a>
 <a class="card" href="/projects/#afm"><strong>Agent-Flavored Markdown</strong><span>2025 – now · Portable AI agents defined in Markdown. Paper at IUI 2026 AgentCraft.</span></a>
-<a class="card" href="/projects/#wso2-integrator"><strong>WSO2 Integrator</strong><span>2024 – 2025 · Low-code and pro-code integration in one tool.</span></a>
+<a class="card" href="/projects/#wso2-integrator"><strong>Choreo Integrator</strong><span>2024 – 2025 · Low-code and pro-code integration in one tool.</span></a>
 <a class="card" href="/projects/#ballerina-compiler"><strong>Ballerina Language &amp; Compiler</strong><span>2016 – now · Compiler, runtime and language specification.</span></a>
 </div>
 

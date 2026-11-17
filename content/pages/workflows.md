@@ -2,16 +2,16 @@
 title: Workflows
 url: /workflows/
 scene: workflow
-description: Durable workflow demos and resources for WSO2 Integrator and Ballerina, by Hasitha Aravinda.
+description: Durable workflow demos and resources for Choreo Integrator and Ballerina, by Hasitha Aravinda.
 ---
 
 # Workflows
 
-<p class="lede">Durable workflows in WSO2 Integrator: long-running processes that wait for people, events and AI agents, and keep going after restarts.</p>
+<p class="lede">Durable workflows in Choreo Integrator: long-running processes that wait for people, events and AI agents, and keep going after restarts.</p>
 
 <div class="cta">
-<a class="button primary" href="https://wso2.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow">{{icon:book-open}} Learn workflows in the docs</a>
-<a class="button" href="https://wso2.com/integration-platform/docs/integrator/get-started">Get started with WSO2 Integrator</a>
+<a class="button primary" href="https://choreolabs.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow">{{icon:book-open}} Learn workflows in the docs</a>
+<a class="button" href="https://choreolabs.com/integration-platform/docs/integrator/get-started">Get started with Choreo Integrator</a>
 </div>
 
 ## Demos
@@ -31,4 +31,4 @@ Real-world use cases you can run on your laptop: each is one Docker Compose stac
 
 - [ballerina/workflow on Ballerina Central](https://central.ballerina.io/ballerina/workflow/latest): API docs
 - [module-ballerina-workflow](https://github.com/ballerina-platform/module-ballerina-workflow): source, issues and changelog
-- [WSO2 Integrator](https://wso2.com/integration-platform/integrator/)
+- [Choreo Integrator](https://choreolabs.com/integration-platform/integrator/)

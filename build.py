@@ -155,7 +155,7 @@ def blog_index(listed):
     return "\n".join(parts)
 
 
-DOCS_WORKFLOW = "https://wso2.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow"
+DOCS_WORKFLOW = "https://choreolabs.com/integration-platform/docs/integrator/develop-and-test/integration-artifacts/workflow"
 
 
 def demo_cards(demos):

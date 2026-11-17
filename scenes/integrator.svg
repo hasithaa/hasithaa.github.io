@@ -1,4 +1,4 @@
-<!-- WSO2 Integrator: the same integration as code (left) and as a flow diagram (right), kept in step. -->
+<!-- Choreo Integrator: the same integration as code (left) and as a flow diagram (right), kept in step. -->
 <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
   <g class="drift">
     <rect class="n" x="110" y="180" width="320" height="420" rx="16"/>
